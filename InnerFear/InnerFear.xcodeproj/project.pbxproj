@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B9FA59CF18A060D000C66570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA59CE18A060D000C66570 /* Foundation.framework */; };
+		B9FA59D118A060D000C66570 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA59D018A060D000C66570 /* CoreGraphics.framework */; };
+		B9FA59D318A060D000C66570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA59D218A060D000C66570 /* UIKit.framework */; };
+		B9FA59D918A060D000C66570 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B9FA59D718A060D000C66570 /* InfoPlist.strings */; };
+		B9FA59DB18A060D000C66570 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA59DA18A060D000C66570 /* main.m */; };
+		B9FA59DF18A060D000C66570 /* IFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA59DE18A060D000C66570 /* IFAppDelegate.m */; };
+		B9FA59E118A060D000C66570 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9FA59E018A060D000C66570 /* Images.xcassets */; };
+		B9FA59E818A060D000C66570 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA59E718A060D000C66570 /* XCTest.framework */; };
+		B9FA59E918A060D000C66570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA59CE18A060D000C66570 /* Foundation.framework */; };
+		B9FA59EA18A060D000C66570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FA59D218A060D000C66570 /* UIKit.framework */; };
+		B9FA59F218A060D000C66570 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B9FA59F018A060D000C66570 /* InfoPlist.strings */; };
+		B9FA59F418A060D000C66570 /* InnerFearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA59F318A060D000C66570 /* InnerFearTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B9FA59EB18A060D000C66570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9FA59C318A060D000C66570 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9FA59CA18A060D000C66570;
+			remoteInfo = InnerFear;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B9FA59CB18A060D000C66570 /* InnerFear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnerFear.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9FA59CE18A060D000C66570 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B9FA59D018A060D000C66570 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B9FA59D218A060D000C66570 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B9FA59D618A060D000C66570 /* InnerFear-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InnerFear-Info.plist"; sourceTree = "<group>"; };
+		B9FA59D818A060D000C66570 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B9FA59DA18A060D000C66570 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B9FA59DC18A060D000C66570 /* InnerFear-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InnerFear-Prefix.pch"; sourceTree = "<group>"; };
+		B9FA59DD18A060D000C66570 /* IFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFAppDelegate.h; sourceTree = "<group>"; };
+		B9FA59DE18A060D000C66570 /* IFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFAppDelegate.m; sourceTree = "<group>"; };
+		B9FA59E018A060D000C66570 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B9FA59E618A060D000C66570 /* InnerFearTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InnerFearTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9FA59E718A060D000C66570 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B9FA59EF18A060D000C66570 /* InnerFearTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InnerFearTests-Info.plist"; sourceTree = "<group>"; };
+		B9FA59F118A060D000C66570 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B9FA59F318A060D000C66570 /* InnerFearTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InnerFearTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9FA59C818A060D000C66570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9FA59D118A060D000C66570 /* CoreGraphics.framework in Frameworks */,
+				B9FA59D318A060D000C66570 /* UIKit.framework in Frameworks */,
+				B9FA59CF18A060D000C66570 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9FA59E318A060D000C66570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9FA59E818A060D000C66570 /* XCTest.framework in Frameworks */,
+				B9FA59EA18A060D000C66570 /* UIKit.framework in Frameworks */,
+				B9FA59E918A060D000C66570 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9FA59C218A060D000C66570 = {
+			isa = PBXGroup;
+			children = (
+				B9FA59D418A060D000C66570 /* InnerFear */,
+				B9FA59ED18A060D000C66570 /* InnerFearTests */,
+				B9FA59CD18A060D000C66570 /* Frameworks */,
+				B9FA59CC18A060D000C66570 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9FA59CC18A060D000C66570 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9FA59CB18A060D000C66570 /* InnerFear.app */,
+				B9FA59E618A060D000C66570 /* InnerFearTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9FA59CD18A060D000C66570 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9FA59CE18A060D000C66570 /* Foundation.framework */,
+				B9FA59D018A060D000C66570 /* CoreGraphics.framework */,
+				B9FA59D218A060D000C66570 /* UIKit.framework */,
+				B9FA59E718A060D000C66570 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9FA59D418A060D000C66570 /* InnerFear */ = {
+			isa = PBXGroup;
+			children = (
+				B9FA59DD18A060D000C66570 /* IFAppDelegate.h */,
+				B9FA59DE18A060D000C66570 /* IFAppDelegate.m */,
+				B9FA59E018A060D000C66570 /* Images.xcassets */,
+				B9FA59D518A060D000C66570 /* Supporting Files */,
+			);
+			path = InnerFear;
+			sourceTree = "<group>";
+		};
+		B9FA59D518A060D000C66570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9FA59D618A060D000C66570 /* InnerFear-Info.plist */,
+				B9FA59D718A060D000C66570 /* InfoPlist.strings */,
+				B9FA59DA18A060D000C66570 /* main.m */,
+				B9FA59DC18A060D000C66570 /* InnerFear-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9FA59ED18A060D000C66570 /* InnerFearTests */ = {
+			isa = PBXGroup;
+			children = (
+				B9FA59F318A060D000C66570 /* InnerFearTests.m */,
+				B9FA59EE18A060D000C66570 /* Supporting Files */,
+			);
+			path = InnerFearTests;
+			sourceTree = "<group>";
+		};
+		B9FA59EE18A060D000C66570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9FA59EF18A060D000C66570 /* InnerFearTests-Info.plist */,
+				B9FA59F018A060D000C66570 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9FA59CA18A060D000C66570 /* InnerFear */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9FA59F718A060D000C66570 /* Build configuration list for PBXNativeTarget "InnerFear" */;
+			buildPhases = (
+				B9FA59C718A060D000C66570 /* Sources */,
+				B9FA59C818A060D000C66570 /* Frameworks */,
+				B9FA59C918A060D000C66570 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InnerFear;
+			productName = InnerFear;
+			productReference = B9FA59CB18A060D000C66570 /* InnerFear.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B9FA59E518A060D000C66570 /* InnerFearTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9FA59FA18A060D000C66570 /* Build configuration list for PBXNativeTarget "InnerFearTests" */;
+			buildPhases = (
+				B9FA59E218A060D000C66570 /* Sources */,
+				B9FA59E318A060D000C66570 /* Frameworks */,
+				B9FA59E418A060D000C66570 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9FA59EC18A060D000C66570 /* PBXTargetDependency */,
+			);
+			name = InnerFearTests;
+			productName = InnerFearTests;
+			productReference = B9FA59E618A060D000C66570 /* InnerFearTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9FA59C318A060D000C66570 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IF;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Jamieson Abbott";
+				TargetAttributes = {
+					B9FA59E518A060D000C66570 = {
+						TestTargetID = B9FA59CA18A060D000C66570;
+					};
+				};
+			};
+			buildConfigurationList = B9FA59C618A060D000C66570 /* Build configuration list for PBXProject "InnerFear" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B9FA59C218A060D000C66570;
+			productRefGroup = B9FA59CC18A060D000C66570 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9FA59CA18A060D000C66570 /* InnerFear */,
+				B9FA59E518A060D000C66570 /* InnerFearTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9FA59C918A060D000C66570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9FA59D918A060D000C66570 /* InfoPlist.strings in Resources */,
+				B9FA59E118A060D000C66570 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9FA59E418A060D000C66570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9FA59F218A060D000C66570 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9FA59C718A060D000C66570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9FA59DB18A060D000C66570 /* main.m in Sources */,
+				B9FA59DF18A060D000C66570 /* IFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9FA59E218A060D000C66570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9FA59F418A060D000C66570 /* InnerFearTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9FA59EC18A060D000C66570 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9FA59CA18A060D000C66570 /* InnerFear */;
+			targetProxy = B9FA59EB18A060D000C66570 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B9FA59D718A060D000C66570 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9FA59D818A060D000C66570 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B9FA59F018A060D000C66570 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9FA59F118A060D000C66570 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B9FA59F518A060D000C66570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B9FA59F618A060D000C66570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9FA59F818A060D000C66570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InnerFear/InnerFear-Prefix.pch";
+				INFOPLIST_FILE = "InnerFear/InnerFear-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B9FA59F918A060D000C66570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InnerFear/InnerFear-Prefix.pch";
+				INFOPLIST_FILE = "InnerFear/InnerFear-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B9FA59FB18A060D000C66570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InnerFear.app/InnerFear";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InnerFear/InnerFear-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "InnerFearTests/InnerFearTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B9FA59FC18A060D000C66570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InnerFear.app/InnerFear";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InnerFear/InnerFear-Prefix.pch";
+				INFOPLIST_FILE = "InnerFearTests/InnerFearTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9FA59C618A060D000C66570 /* Build configuration list for PBXProject "InnerFear" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9FA59F518A060D000C66570 /* Debug */,
+				B9FA59F618A060D000C66570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9FA59F718A060D000C66570 /* Build configuration list for PBXNativeTarget "InnerFear" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9FA59F818A060D000C66570 /* Debug */,
+				B9FA59F918A060D000C66570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B9FA59FA18A060D000C66570 /* Build configuration list for PBXNativeTarget "InnerFearTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9FA59FB18A060D000C66570 /* Debug */,
+				B9FA59FC18A060D000C66570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9FA59C318A060D000C66570 /* Project object */;
+}
