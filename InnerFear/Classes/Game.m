@@ -65,6 +65,7 @@
 
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"background.jpg"];
     [_contents addChild:background];
+    [_contents addEventListener:@selector(onContentTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     NSString *text = @"To find out how to create your own game out of this InnerFear, "
                      @"have a look at the 'First Steps' section of the Sparrow website!";
@@ -129,6 +130,29 @@
 {
     NSSet *touches = [event touchesWithTarget:self andPhase:SPTouchPhaseEnded];
     if ([touches anyObject]) [Media playSound:@"sound.caf"];
+}
+
+- (void)onContentTouched:(SPTouchEvent*) event {
+    NSSet *touches = [event touchesWithTarget:self andPhase:SPTouchPhaseEnded];
+    for(SPTouch* touch in [event touchesWithTarget:_contents])
+    {
+        SPImage *image = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"sparrow"]];
+        image.pivotX = (int)image.width  / 2;
+        image.pivotY = (int)image.height / 2;
+        image.x = touch.globalX;
+        image.y = touch.globalY;
+        [_contents addChild:image];
+        
+        [image addEventListener:@selector(onImageTouched:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        
+        SPTween *tween = [SPTween tweenWithTarget:image time:1.5 transition:SP_TRANSITION_EASE_IN_OUT];
+        [tween animateProperty:@"y" targetValue:image.y + 30];
+        [tween animateProperty:@"rotation" targetValue:0.1];
+        tween.repeatCount = 0; // repeat indefinitely
+        tween.reverse = YES;
+        [Sparrow.juggler addObject:tween];
+    }
+    NSLog(@"%@", [touches allObjects]);
 }
 
 - (void)onResize:(SPResizeEvent *)event
