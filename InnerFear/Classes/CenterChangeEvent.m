@@ -14,7 +14,7 @@
 {
     if ((self = [super initWithType:type bubbles:NO]))
     {
-        self.center = [[SPPoint alloc] init];
+        self.change = [[SPPoint alloc] init];
     }
     return self;
 }

@@ -17,9 +17,9 @@
 		B99712FE18A0760E001E884A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99712FD18A0760E001E884A /* Images.xcassets */; };
 		B99817DE18A0727A003A5C33 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B99817DB18A0726D003A5C33 /* libSparrow.a */; };
 		B9FC695418A73D8700A60F4B /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695318A73D8700A60F4B /* Background.m */; };
-		B9FC695818A7563A00A60F4B /* Planets.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695718A7563A00A60F4B /* Planets.m */; };
 		B9FC695B18A7DACA00A60F4B /* CenterChangeEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */; };
 		B9FC695E18A7E8A900A60F4B /* Planet.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695D18A7E8A900A60F4B /* Planet.m */; };
+		B9FC696118A8359E00A60F4B /* Fleet.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696018A8359E00A60F4B /* Fleet.m */; };
 		DE3F093811B7B9DC009D4DB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */; };
 		DE3F093A11B7B9DC009D4DB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */; };
 		DE3F097811B7BABD009D4DB0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F097711B7BABD009D4DB0 /* OpenAL.framework */; };
@@ -71,12 +71,12 @@
 		B99817D518A0726C003A5C33 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = Sparrow/Sparrow.xcodeproj; sourceTree = "<group>"; };
 		B9FC695218A73D8700A60F4B /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		B9FC695318A73D8700A60F4B /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
-		B9FC695618A7563A00A60F4B /* Planets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planets.h; sourceTree = "<group>"; };
-		B9FC695718A7563A00A60F4B /* Planets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planets.m; sourceTree = "<group>"; };
 		B9FC695918A7DACA00A60F4B /* CenterChangeEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterChangeEvent.h; sourceTree = "<group>"; };
 		B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterChangeEvent.m; sourceTree = "<group>"; };
 		B9FC695C18A7E8A900A60F4B /* Planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planet.h; sourceTree = "<group>"; };
 		B9FC695D18A7E8A900A60F4B /* Planet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planet.m; sourceTree = "<group>"; };
+		B9FC695F18A8359E00A60F4B /* Fleet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fleet.h; sourceTree = "<group>"; };
+		B9FC696018A8359E00A60F4B /* Fleet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fleet.m; sourceTree = "<group>"; };
 		DE115960162320F100A25086 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -222,8 +222,6 @@
 		B9FC695518A7562900A60F4B /* Planet */ = {
 			isa = PBXGroup;
 			children = (
-				B9FC695618A7563A00A60F4B /* Planets.h */,
-				B9FC695718A7563A00A60F4B /* Planets.m */,
 				B9FC695C18A7E8A900A60F4B /* Planet.h */,
 				B9FC695D18A7E8A900A60F4B /* Planet.m */,
 			);
@@ -246,6 +244,8 @@
 				DE4F80D514E153E600655D44 /* Media.m */,
 				B9FC695918A7DACA00A60F4B /* CenterChangeEvent.h */,
 				B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */,
+				B9FC695F18A8359E00A60F4B /* Fleet.h */,
+				B9FC696018A8359E00A60F4B /* Fleet.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -383,10 +383,10 @@
 				B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B9FC695B18A7DACA00A60F4B /* CenterChangeEvent.m in Sources */,
-				B9FC695818A7563A00A60F4B /* Planets.m in Sources */,
 				B9FC695E18A7E8A900A60F4B /* Planet.m in Sources */,
 				B9FC695418A73D8700A60F4B /* Background.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				B9FC696118A8359E00A60F4B /* Fleet.m in Sources */,
 				DE4A3DE510FFB2AF00FDA492 /* Game.m in Sources */,
 				DE4F80D614E153E600655D44 /* Media.m in Sources */,
 			);

@@ -56,11 +56,11 @@
     
 }
 
-- (void) redrawTiles: (SPPoint*) newcenter {
+- (void) redrawTiles: (SPPoint*) centerchange {
     for (SPImage* image in self.tiles)
     {
-        image.x -= newcenter.x;
-        image.y -= newcenter.y;
+        image.x -= centerchange.x;
+        image.y -= centerchange.y;
         
         if (image.y > Sparrow.stage.height)
         {
@@ -86,7 +86,7 @@
 
 - (void) onCenterChange: (CenterChangeEvent*) event
 {
-    [self redrawTiles:event.center];
+    [self redrawTiles:event.change];
 }
 
 

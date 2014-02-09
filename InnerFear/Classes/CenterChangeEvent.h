@@ -11,6 +11,7 @@
 @interface CenterChangeEvent : SPEvent
 
 
-@property (nonatomic, retain) SPPoint* center;
+@property (nonatomic, retain) SPPoint* change;
+@property (nonatomic, retain) SPPoint* newcenter;
 
 @end
