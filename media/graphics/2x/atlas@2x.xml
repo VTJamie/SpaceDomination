@@ -1,3 +1,5 @@
 <TextureAtlas imagePath='atlas@2x.png'>
-  <SubTexture height='325.0' y='0' x='0' width='526.0' name='sparrow'/>
+  <SubTexture name='stars' x='0' y='0' width='314.0' height='314.0'/>
+  <SubTexture name='planet2' x='315' y='0' width='102.0' height='102.0'/>
+  <SubTexture name='planet1' x='315' y='103' width='102.0' height='102.0'/>
 </TextureAtlas>
