@@ -8,6 +8,7 @@
 
 #import "Planet.h"
 #import "CenterChangeEvent.h"
+#import "PlanetTouchEvent.h"
 
 #define ARC4RANDOM_MAX 0x100000000
 
@@ -61,7 +62,7 @@
     [self determineVisibility];
     [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
     
-   // [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
 }
 
@@ -86,12 +87,9 @@
     SPTouch *endTouch = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] anyObject];
     
     if (endTouch) {
-        if(self.team == 1) {
- //           [self changeTeam:2];
-        }
-        else {
-   //         [self changeTeam:1];
-        }
+        PlanetTouchEvent* planettouch = [[PlanetTouchEvent alloc] initWithType:EVENT_TYPE_PLANET_TOUCH];
+        planettouch.planet = self;
+        [self dispatchEvent:planettouch];
     }
 }
 
@@ -99,12 +97,13 @@
 - (void) determineVisibility
 {
     BOOL makevisible = YES;
+    int x = self.x + self.parent.x - self.planetimage.width / 2.0;
+    int y = self.y + self.parent.y - self.planetimage.height / 2.0;
     
-    
-    if (self.x > Sparrow.stage.width ||
-        self.y > Sparrow.stage.height ||
-        self.x + self.planetimage.width < 0 ||
-        self.y + self.planetimage.height < 0) {
+    if (x > Sparrow.stage.width ||
+        y > Sparrow.stage.height ||
+        x + self.planetimage.width < 0 ||
+        y + self.planetimage.height < 0) {
         makevisible = NO;
     }
     

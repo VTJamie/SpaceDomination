@@ -9,6 +9,7 @@
 
 #define EVENT_TYPE_NEW_CENTER_TRIGGERED @"newCenterLocationTriggered"
 #define EVENT_TYPE_MOVE_FLEET @"newFleetLocation"
+#define EVENT_TYPE_PLANET_TOUCH @"planetTouched"
 
 @interface Game : SPSprite
 

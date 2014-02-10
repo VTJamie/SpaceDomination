@@ -10,6 +10,7 @@
 #import "CenterChangeEvent.h"
 #import "TouchBackgroundEvent.h"
 #import "GamePieceContainer.h"
+#import "PlanetTouchEvent.h"
 
 // --- private interface ---------------------------------------------------------------------------
 
@@ -32,7 +33,7 @@
     if ((self = [super init]))
     {
         gameInstance = self;
-     
+        
         self.minX = -500;
         self.maxX = 500;
         self.minY = -500;
@@ -71,6 +72,9 @@
     {
         Planet* playerPlanet = [[Planet alloc] initWithTeam:1];
         Planet* computerPlanet = [[Planet alloc] initWithTeam:2];
+        [playerPlanet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
+        
+        [computerPlanet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
         
         [self.planets addObject:playerPlanet];
         [self.planets addObject:computerPlanet];
@@ -90,10 +94,15 @@
     // To force the game to start up in landscape, add the key "Initial Interface Orientation"
     // to the "App-Info.plist" file and choose any landscape orientation.
     
- //   [self addEventListener:@selector(onResize:) atObject:self forType:SP_EVENT_TYPE_RESIZE];
+    //   [self addEventListener:@selector(onResize:) atObject:self forType:SP_EVENT_TYPE_RESIZE];
     
     [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
- 
+    
+}
+
+- (void) planetTouch: (PlanetTouchEvent*) planetevent
+{
+    [self dispatchEvent:planetevent];
 }
 
 - (void) onTouch: (SPTouchEvent*) event {
@@ -146,9 +155,7 @@
     }
     else if (endTouch) {
         if (!dragging) {
-            TouchBackgroundEvent* touchbackevent = [[TouchBackgroundEvent alloc] initWithType:EVENT_TYPE_MOVE_FLEET];
-            touchbackevent.touchpoint = [endTouch locationInSpace:self];
-            [self dispatchEvent:touchbackevent];
+            
         }
         dragging = NO;
     }
@@ -158,7 +165,7 @@
 //{
 //    // NSLog(@"new size: %.0fx%.0f (%@)", event.width, event.height,
 //    //     event.isPortrait ? @"portrait" : @"landscape");
-//    
+//
 //    //   [self updateLocations];
 //}
 

@@ -11,6 +11,7 @@
 #import "Game.h"
 #import "TouchBackgroundEvent.h"
 #import "CenterChangeEvent.h"
+#import "PlanetTouchEvent.h"
 
 @implementation Fleet
 
@@ -44,9 +45,19 @@
     self.x = Sparrow.stage.width / 2.0;
     self.y = Sparrow.stage.height / 2.0;
 
-    [[Game instance] addEventListener:@selector(moveFleetThroughSpace:) atObject:self forType:EVENT_TYPE_MOVE_FLEET];
+    if (self.team == 1)
+    {
+      //  [[Game instance] addEventListener:@selector(moveFleetThroughSpace:) atObject:self forType:EVENT_TYPE_MOVE_FLEET];
+        [[Game instance] addEventListener:@selector(flyToPlanet:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
+    }
     
   //  [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
+}
+
+- (void) flyToPlanet: (PlanetTouchEvent*) planetevent
+{
+    self.x = planetevent.planet.x;
+    self.y = planetevent.planet.y;
 }
 
 - (void) moveFleetThroughSpace: (TouchBackgroundEvent*) touchevent
@@ -54,20 +65,10 @@
 
 //    self.currentLoc = [[Game instance] currentcenter];
 
-    self.x = touchevent.touchpoint.x - self.parent.x;
-    self.y = touchevent.touchpoint.y - self.parent.y;
+   // self.x = touchevent.touchpoint.x - self.parent.x;
+    //self.y = touchevent.touchpoint.y - self.parent.y;
     
 //    self.currentLoc.x = self
-}
-
-- (void) onCenterChange: (CenterChangeEvent*) event
-{
-    // NSLog(@"Center: %f, %f", event.center.x, event.center.y);
-//    self.x -= event.change.x;
- //   self.y -= event.change.y;
-//    [self determineVisibility];
-    //   [self updateLocations];
-    
 }
 
 
