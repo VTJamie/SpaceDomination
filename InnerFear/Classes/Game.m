@@ -6,6 +6,7 @@
 #import "Game.h"
 #import "Background.h"
 #import "Fleet.h"
+#import "Planet.h"
 #import "CenterChangeEvent.h"
 
 // --- private interface ---------------------------------------------------------------------------
@@ -13,7 +14,6 @@
 @interface Game ()
 
 - (void)setup;
-- (void)onResize:(SPResizeEvent *)event;
 
 @end
 
@@ -35,7 +35,9 @@
         self.maxX = 500;
         self.minY = -500;
         self.maxY = 500;
+        self.numberofplanets = 5;
         self.currentcenter = [[SPPoint alloc] init];
+        self.planets = [[NSMutableArray alloc] init];
         [self setup];
     }
     
@@ -46,30 +48,35 @@
 {
     // release any resources here
     [Media releaseAtlas];
-    // [Media releaseSound];
+    [Media releaseSound];
 }
 
 - (void)setup
 {
-    // This is where the code of your game will start.
-    // In this sample, we add just a few simple elements to get a feeling about how it's done.
+    [SPAudioEngine start];  // starts up the sound engine
     
-    //  [SPAudioEngine start];  // starts up the sound engine
-    
-    
-    // The Application contains a very handy "Media" class which loads your texture atlas
-    // and all available sound files automatically. Extend this class as you need it --
-    // that way, you will be able to access your textures and sounds throughout your
-    // application, without duplicating any resources.
     
     [Media initAtlas];      // loads your texture atlas -> see Media.h/Media.m
     //  [Media initSound];      // loads all your sounds    -> see Media.h/Media.m
     
-    
-    
     [self addChild:[[Background alloc] init]];
-    [self addChild:[[Fleet alloc] initWithSide:1]];
-    [self addChild:[[Fleet alloc] initWithSide:2]];
+    self.computer = [[Fleet alloc] initWithSide:2];
+    self.player = [[Fleet alloc] initWithSide:1];
+    
+    for (int i = 0; i < self.numberofplanets; i++)
+    {
+        Planet* playerPlanet = [[Planet alloc] initWithTeam:1];
+        Planet* computerPlanet = [[Planet alloc] initWithTeam:2];
+        
+        [self.planets addObject:playerPlanet];
+        [self.planets addObject:computerPlanet];
+        
+        [self addChild:playerPlanet];
+        [self addChild:computerPlanet];
+    }
+    
+    [self addChild:self.player];
+    [self addChild:self.computer];
     
     // The controller autorotates the game to all supported device orientations.
     // Choose the orienations you want to support in the Xcode Target Settings ("Summary"-tab).
@@ -79,7 +86,7 @@
     // To force the game to start up in landscape, add the key "Initial Interface Orientation"
     // to the "App-Info.plist" file and choose any landscape orientation.
     
-    [self addEventListener:@selector(onResize:) atObject:self forType:SP_EVENT_TYPE_RESIZE];
+ //   [self addEventListener:@selector(onResize:) atObject:self forType:SP_EVENT_TYPE_RESIZE];
     
     [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
  
@@ -103,7 +110,6 @@
         
         changecenter.change.x = startpoint.x - dp.x;
         changecenter.change.y = startpoint.y - dp.y;
-        
         
         
         if (self.currentcenter.x + changecenter.change.x < self.minX)
@@ -136,19 +142,19 @@
     }
     else if (endTouch) {
         if (!dragging) {
-            NSLog(@"Not Dragging");
+//            NSLog(@"Not Dragging");
         }
         dragging = NO;
     }
 }
-
-- (void)onResize:(SPResizeEvent *)event
-{
-    // NSLog(@"new size: %.0fx%.0f (%@)", event.width, event.height,
-    //     event.isPortrait ? @"portrait" : @"landscape");
-    
-    //   [self updateLocations];
-}
+//
+//- (void)onResize:(SPResizeEvent *)event
+//{
+//    // NSLog(@"new size: %.0fx%.0f (%@)", event.width, event.height,
+//    //     event.isPortrait ? @"portrait" : @"landscape");
+//    
+//    //   [self updateLocations];
+//}
 
 +(Game*) instance
 {

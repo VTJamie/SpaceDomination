@@ -11,7 +11,10 @@
 @interface Fleet : SPSprite
 
 @property (nonatomic, retain) NSMutableArray* planets;
+@property (nonatomic, retain) SPImage* shipImage;
 @property (nonatomic, assign) int team;
+@property (nonatomic, retain) SPPoint* currentLoc;
+
 
 - (id)initWithSide: (int) team;
 - (void)setup;

@@ -47,8 +47,8 @@
     Game* g = [Game instance];
     
     self.planetimage = [[SPImage alloc] initWithTexture:[Media atlasTexture:[NSString stringWithFormat:@"planet%d", self.team]]];
-    self.planetimage.pivotX = 0;
-    self.planetimage.pivotY = 0;
+    self.planetimage.pivotX = self.planetimage.width / 2.0;
+    self.planetimage.pivotY = self.planetimage.height / 2.0;
     self.planetimage.x = 0;
     self.planetimage.y = 0;
     [self addChild:self.planetimage];
@@ -87,10 +87,10 @@
     
     if (endTouch) {
         if(self.team == 1) {
-            [self changeTeam:2];
+ //           [self changeTeam:2];
         }
         else {
-            [self changeTeam:1];
+   //         [self changeTeam:1];
         }
     }
 }

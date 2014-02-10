@@ -16,7 +16,8 @@
     if ((self = [super init]))
     {
         self.team = team;
-        self.planets = [[NSMutableArray alloc] init];
+        self.currentLoc = [[SPPoint alloc] init];
+
         [self setup];
     }
     return self;
@@ -28,13 +29,15 @@
 }
 
 - (void)setup
-{
-    for (int i = 0; i < 5; i++)
-    {
-        Planet* curplanet =[[Planet alloc] initWithTeam:self.team];
-        [self.planets addObject:curplanet];
-        [self addChild:curplanet];
-    }
+{ 
+    self.shipImage = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"ship"]];
+    
+    self.shipImage.pivotX = self.shipImage.width / 2.0;
+    self.shipImage.pivotY = self.shipImage.height / 2.0;
+    self.shipImage.x = Sparrow.stage.width / 2.0;
+    self.shipImage.y = Sparrow.stage.height / 2.0;
+    [self addChild:self.shipImage];
+
 }
 
 @end

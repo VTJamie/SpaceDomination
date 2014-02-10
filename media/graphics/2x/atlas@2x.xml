@@ -2,4 +2,5 @@
   <SubTexture name='stars' x='0' y='0' width='314.0' height='314.0'/>
   <SubTexture name='planet2' x='315' y='0' width='102.0' height='102.0'/>
   <SubTexture name='planet1' x='315' y='103' width='102.0' height='102.0'/>
+  <SubTexture name='ship' x='418' y='0' width='80.0' height='50.0'/>
 </TextureAtlas>
