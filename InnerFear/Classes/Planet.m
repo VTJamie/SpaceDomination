@@ -61,15 +61,15 @@
     [self determineVisibility];
     [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
     
-    [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+   // [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
 }
 
 - (void) onCenterChange: (CenterChangeEvent*) event
 {
     // NSLog(@"Center: %f, %f", event.center.x, event.center.y);
-    self.x -= event.change.x;
-    self.y -= event.change.y;
+   // self.x -= event.change.x;
+   // self.y -= event.change.y;
     [self determineVisibility];
     //   [self updateLocations];
     

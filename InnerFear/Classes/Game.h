@@ -8,6 +8,7 @@
 #import "Fleet.h"
 
 #define EVENT_TYPE_NEW_CENTER_TRIGGERED @"newCenterLocationTriggered"
+#define EVENT_TYPE_MOVE_FLEET @"newFleetLocation"
 
 @interface Game : SPSprite
 

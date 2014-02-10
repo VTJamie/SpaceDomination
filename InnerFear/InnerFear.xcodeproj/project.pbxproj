@@ -20,6 +20,8 @@
 		B9FC695B18A7DACA00A60F4B /* CenterChangeEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */; };
 		B9FC695E18A7E8A900A60F4B /* Planet.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695D18A7E8A900A60F4B /* Planet.m */; };
 		B9FC696118A8359E00A60F4B /* Fleet.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696018A8359E00A60F4B /* Fleet.m */; };
+		B9FC696718A864B900A60F4B /* TouchBackgroundEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696618A864B900A60F4B /* TouchBackgroundEvent.m */; };
+		B9FC696A18A86E8F00A60F4B /* GamePieceContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */; };
 		DE3F093811B7B9DC009D4DB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */; };
 		DE3F093A11B7B9DC009D4DB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */; };
 		DE3F097811B7BABD009D4DB0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F097711B7BABD009D4DB0 /* OpenAL.framework */; };
@@ -77,6 +79,10 @@
 		B9FC695D18A7E8A900A60F4B /* Planet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planet.m; sourceTree = "<group>"; };
 		B9FC695F18A8359E00A60F4B /* Fleet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fleet.h; sourceTree = "<group>"; };
 		B9FC696018A8359E00A60F4B /* Fleet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fleet.m; sourceTree = "<group>"; };
+		B9FC696518A864B900A60F4B /* TouchBackgroundEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchBackgroundEvent.h; sourceTree = "<group>"; };
+		B9FC696618A864B900A60F4B /* TouchBackgroundEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchBackgroundEvent.m; sourceTree = "<group>"; };
+		B9FC696818A86E8F00A60F4B /* GamePieceContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePieceContainer.h; sourceTree = "<group>"; };
+		B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePieceContainer.m; sourceTree = "<group>"; };
 		DE115960162320F100A25086 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -246,6 +252,10 @@
 				B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */,
 				B9FC695F18A8359E00A60F4B /* Fleet.h */,
 				B9FC696018A8359E00A60F4B /* Fleet.m */,
+				B9FC696518A864B900A60F4B /* TouchBackgroundEvent.h */,
+				B9FC696618A864B900A60F4B /* TouchBackgroundEvent.m */,
+				B9FC696818A86E8F00A60F4B /* GamePieceContainer.h */,
+				B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -384,6 +394,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B9FC695B18A7DACA00A60F4B /* CenterChangeEvent.m in Sources */,
 				B9FC695E18A7E8A900A60F4B /* Planet.m in Sources */,
+				B9FC696718A864B900A60F4B /* TouchBackgroundEvent.m in Sources */,
+				B9FC696A18A86E8F00A60F4B /* GamePieceContainer.m in Sources */,
 				B9FC695418A73D8700A60F4B /* Background.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				B9FC696118A8359E00A60F4B /* Fleet.m in Sources */,

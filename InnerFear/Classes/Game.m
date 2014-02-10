@@ -8,6 +8,8 @@
 #import "Fleet.h"
 #import "Planet.h"
 #import "CenterChangeEvent.h"
+#import "TouchBackgroundEvent.h"
+#import "GamePieceContainer.h"
 
 // --- private interface ---------------------------------------------------------------------------
 
@@ -60,6 +62,8 @@
     //  [Media initSound];      // loads all your sounds    -> see Media.h/Media.m
     
     [self addChild:[[Background alloc] init]];
+    GamePieceContainer* piececontainer = [[GamePieceContainer alloc] init];
+    [self addChild:piececontainer];
     self.computer = [[Fleet alloc] initWithSide:2];
     self.player = [[Fleet alloc] initWithSide:1];
     
@@ -71,12 +75,12 @@
         [self.planets addObject:playerPlanet];
         [self.planets addObject:computerPlanet];
         
-        [self addChild:playerPlanet];
-        [self addChild:computerPlanet];
+        [piececontainer addChild:playerPlanet];
+        [piececontainer addChild:computerPlanet];
     }
     
-    [self addChild:self.player];
-    [self addChild:self.computer];
+    [piececontainer addChild:self.player];
+    [piececontainer addChild:self.computer];
     
     // The controller autorotates the game to all supported device orientations.
     // Choose the orienations you want to support in the Xcode Target Settings ("Summary"-tab).
@@ -142,7 +146,9 @@
     }
     else if (endTouch) {
         if (!dragging) {
-//            NSLog(@"Not Dragging");
+            TouchBackgroundEvent* touchbackevent = [[TouchBackgroundEvent alloc] initWithType:EVENT_TYPE_MOVE_FLEET];
+            touchbackevent.touchpoint = [endTouch locationInSpace:self];
+            [self dispatchEvent:touchbackevent];
         }
         dragging = NO;
     }
