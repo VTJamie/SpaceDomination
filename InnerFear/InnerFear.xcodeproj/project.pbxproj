@@ -23,6 +23,8 @@
 		B9FC696718A864B900A60F4B /* TouchBackgroundEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696618A864B900A60F4B /* TouchBackgroundEvent.m */; };
 		B9FC696A18A86E8F00A60F4B /* GamePieceContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */; };
 		B9FC696D18A8857D00A60F4B /* PlanetTouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696C18A8857D00A60F4B /* PlanetTouchEvent.m */; };
+		B9FC697018A94A0500A60F4B /* PlanetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC696F18A94A0500A60F4B /* PlanetMenu.m */; };
+		B9FC697218A959CA00A60F4B /* spacedock.png in Resources */ = {isa = PBXBuildFile; fileRef = B9FC697118A959CA00A60F4B /* spacedock.png */; };
 		DE3F093811B7B9DC009D4DB0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */; };
 		DE3F093A11B7B9DC009D4DB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */; };
 		DE3F097811B7BABD009D4DB0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3F097711B7BABD009D4DB0 /* OpenAL.framework */; };
@@ -86,6 +88,9 @@
 		B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePieceContainer.m; sourceTree = "<group>"; };
 		B9FC696B18A8857D00A60F4B /* PlanetTouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetTouchEvent.h; sourceTree = "<group>"; };
 		B9FC696C18A8857D00A60F4B /* PlanetTouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanetTouchEvent.m; sourceTree = "<group>"; };
+		B9FC696E18A94A0500A60F4B /* PlanetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanetMenu.h; sourceTree = "<group>"; };
+		B9FC696F18A94A0500A60F4B /* PlanetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanetMenu.m; sourceTree = "<group>"; };
+		B9FC697118A959CA00A60F4B /* spacedock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spacedock.png; path = ../media/spacedock.png; sourceTree = "<group>"; };
 		DE115960162320F100A25086 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		DE3F093711B7B9DC009D4DB0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE3F093911B7B9DC009D4DB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -130,9 +135,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B9FC695518A7562900A60F4B /* Planet */,
 				B91A603718A1F77400BDD6C3 /* Menu */,
-				B91A603418A1F74F00BDD6C3 /* Background */,
 				DE4F80D714E153EA00655D44 /* Game */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
@@ -151,6 +154,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B9FC697118A959CA00A60F4B /* spacedock.png */,
 				B99817D518A0726C003A5C33 /* Sparrow.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -199,15 +203,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B91A603418A1F74F00BDD6C3 /* Background */ = {
-			isa = PBXGroup;
-			children = (
-				B9FC695218A73D8700A60F4B /* Background.h */,
-				B9FC695318A73D8700A60F4B /* Background.m */,
-			);
-			name = Background;
-			sourceTree = "<group>";
-		};
 		B91A603718A1F77400BDD6C3 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,15 +223,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B9FC695518A7562900A60F4B /* Planet */ = {
-			isa = PBXGroup;
-			children = (
-				B9FC695C18A7E8A900A60F4B /* Planet.h */,
-				B9FC695D18A7E8A900A60F4B /* Planet.m */,
-			);
-			name = Planet;
-			sourceTree = "<group>";
-		};
 		DE0C71121624180300357F6E /* system */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +233,10 @@
 		DE4F80D714E153EA00655D44 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				B9FC695218A73D8700A60F4B /* Background.h */,
+				B9FC695318A73D8700A60F4B /* Background.m */,
+				B9FC695C18A7E8A900A60F4B /* Planet.h */,
+				B9FC695D18A7E8A900A60F4B /* Planet.m */,
 				DE4A3DE310FFB2AF00FDA492 /* Game.h */,
 				DE4A3DE410FFB2AF00FDA492 /* Game.m */,
 				DE4F80D414E153E600655D44 /* Media.h */,
@@ -261,6 +251,8 @@
 				B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */,
 				B9FC696B18A8857D00A60F4B /* PlanetTouchEvent.h */,
 				B9FC696C18A8857D00A60F4B /* PlanetTouchEvent.m */,
+				B9FC696E18A94A0500A60F4B /* PlanetMenu.h */,
+				B9FC696F18A94A0500A60F4B /* PlanetMenu.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -378,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9FC697218A959CA00A60F4B /* spacedock.png in Resources */,
 				DE4F80E814E1541400655D44 /* sound.caf in Resources */,
 				DE4F80E914E1541400655D44 /* atlas.png in Resources */,
 				DE4F80EA14E1541400655D44 /* atlas.xml in Resources */,
@@ -396,6 +389,7 @@
 			files = (
 				B91A603D18A1F83100BDD6C3 /* StartButton.m in Sources */,
 				B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */,
+				B9FC697018A94A0500A60F4B /* PlanetMenu.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B9FC695B18A7DACA00A60F4B /* CenterChangeEvent.m in Sources */,
 				B9FC695E18A7E8A900A60F4B /* Planet.m in Sources */,

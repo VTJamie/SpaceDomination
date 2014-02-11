@@ -12,6 +12,7 @@
 #import "TouchBackgroundEvent.h"
 #import "CenterChangeEvent.h"
 #import "PlanetTouchEvent.h"
+#import "PlanetMenu.h"
 
 @implementation Fleet
 
@@ -56,8 +57,37 @@
 
 - (void) flyToPlanet: (PlanetTouchEvent*) planetevent
 {
-    self.x = planetevent.planet.x;
-    self.y = planetevent.planet.y;
+    //Create the corresponding tween and feed him the door object,
+    //state the time it takes to close and the final value for Y.
+    //In our case this is 0, since we want the door to shut
+    //completely.
+    
+    if(self.currenttween)
+    {
+        [[Sparrow juggler] removeObjectsWithTarget:self];
+    }
+    
+    self.currenttween = [SPTween tweenWithTarget:self
+                                         time:4.0f transition:SP_TRANSITION_LINEAR];
+
+    
+    //Tell the tween that it should transition the Y value to 0.
+    [self.currenttween animateProperty:@"x" targetValue:planetevent.planet.x];
+    [self.currenttween animateProperty:@"y" targetValue:planetevent.planet.y];
+    
+    __block Fleet* that = self;
+    __block Planet* thatplanet = planetevent.planet;
+    
+    self.currenttween.onComplete = ^{
+        [[Game instance] addChild:[[PlanetMenu alloc] initWithPlanet:thatplanet]];
+        that.currenttween = nil;
+    };
+    //Register the tween at the nearest juggler.
+    //(We will come back to jugglers later.)
+    [[Sparrow juggler] addObject:self.currenttween];
+    
+//    self.x = planetevent.planet.x;
+  //  self.y = planetevent.planet.y;
 }
 
 - (void) moveFleetThroughSpace: (TouchBackgroundEvent*) touchevent

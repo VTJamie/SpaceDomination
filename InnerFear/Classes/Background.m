@@ -36,7 +36,7 @@
     
     int tileWidth = gameWidth / imageWidth + 2;
     int tileHeight = gameHeight / imageHeight + 2;
-    NSLog(@"%d, %d", tileWidth, tileHeight);
+ //   NSLog(@"%d, %d", tileWidth, tileHeight);
     
     for (int x = 0; x < tileWidth; x++)
     {

@@ -14,6 +14,7 @@
 @property (nonatomic, retain) SPImage* shipImage;
 @property (nonatomic, assign) int team;
 @property (nonatomic, retain) SPPoint* currentLoc;
+@property (nonatomic, retain) SPTween* currenttween;
 
 
 - (id)initWithSide: (int) team;
