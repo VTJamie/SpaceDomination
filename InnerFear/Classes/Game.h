@@ -18,14 +18,22 @@
 @property (nonatomic, retain) SPPoint* currentcenter;
 @property (nonatomic, retain) Fleet* player;
 @property (nonatomic, retain) Fleet* computer;
+
+@property (nonatomic, retain) SPJuggler* gameJuggler;
+@property (nonatomic, retain) SPJuggler* menuJuggler;
+
 @property (nonatomic, assign) int numberofplanets;
 
 @property (nonatomic, retain) NSMutableArray* planets;
+
+@property (nonatomic, assign) BOOL menuopened;
 
 @property (nonatomic, assign) int minX;
 @property (nonatomic, assign) int maxX;
 @property (nonatomic, assign) int minY;
 @property (nonatomic, assign) int maxY;
+
+
 
 @end
 

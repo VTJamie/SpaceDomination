@@ -30,12 +30,14 @@
     if ((self = [super init]))
     {
         gameInstance = self;
-        
+        self.gameJuggler = [SPJuggler juggler];
+        self.menuJuggler = [SPJuggler juggler];
         self.minX = -500;
         self.maxX = 500;
         self.minY = -500;
         self.maxY = 500;
         self.numberofplanets = 5;
+        self.menuopened = NO;
         self.currentcenter = [[SPPoint alloc] init];
         self.planets = [[NSMutableArray alloc] init];
         [self setup];
@@ -95,11 +97,26 @@
     
     [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
 }
 
 - (void) planetTouch: (PlanetTouchEvent*) planetevent
 {
     [self dispatchEvent:planetevent];
+}
+
+- (void)onEnterFrame:(SPEnterFrameEvent *)event
+{
+    [self.gameJuggler advanceTime:event.passedTime];
+    [self.menuJuggler advanceTime:event.passedTime];
+    [self.player advanceTime:event.passedTime];
+    [self.computer advanceTime:event.passedTime];
+
+    for (int i = 0; i < self.planets.count; i++)
+    {
+        [[self.planets objectAtIndex:i] advanceTime:event.passedTime];
+    }
+    
 }
 
 - (void) onTouch: (SPTouchEvent*) event {

@@ -33,6 +33,11 @@
     
 }
 
+- (void) advanceTime: (double) passedTime
+{
+   // NSLog(@"Fleet Team: %d, %f", self.team, passedTime);
+}
+
 - (void)setup
 { 
     self.shipImage = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"ship"]];
@@ -64,7 +69,7 @@
     
     if(self.currenttween)
     {
-        [[Sparrow juggler] removeObjectsWithTarget:self];
+        [[Game instance].gameJuggler removeObjectsWithTarget:self];
     }
     
     self.currenttween = [SPTween tweenWithTarget:self
@@ -84,7 +89,7 @@
     };
     //Register the tween at the nearest juggler.
     //(We will come back to jugglers later.)
-    [[Sparrow juggler] addObject:self.currenttween];
+    [[Game instance].gameJuggler addObject:self.currenttween];
     
 //    self.x = planetevent.planet.x;
   //  self.y = planetevent.planet.y;

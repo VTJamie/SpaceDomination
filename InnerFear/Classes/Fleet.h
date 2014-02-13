@@ -18,6 +18,8 @@
 
 
 - (id)initWithSide: (int) team;
+
+- (void) advanceTime: (double) passedTime;
 - (void)setup;
 
 

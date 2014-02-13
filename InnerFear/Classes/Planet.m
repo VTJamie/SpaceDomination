@@ -19,7 +19,9 @@
     if ((self = [super init]))
     {
         self.team = team;
+        self.underattack = NO;
         self.spaceLoc = [[SPPoint alloc] init];
+        self.shipFactory = [[TimeFactory alloc] initWithTimeForUnit:1.0 unitSize:1];
         [self setup];
     }
     return self;
@@ -28,6 +30,33 @@
 - (void)dealloc
 {
     
+}
+
+- (void) advanceTime: (double) passedTime
+{
+ //   NSLog(@"Planet Team: %d, %f", self.team, passedTime);
+    [self advanceFactory:passedTime];
+    [self advanceBattle:passedTime];
+}
+
+- (void) advanceBattle: (double) passedTime
+{
+    if (self.underattack)
+    {
+        
+    }
+}
+
+- (void) advanceFactory: (double) passedTime
+{
+    if (!self.underattack)
+    {
+        int unit = [self.shipFactory getUnit:passedTime];
+        if (unit > 0)
+        {
+            NSLog(@"SHIP GENERATED FIGHT!: %d", unit);
+        }
+    }
 }
 
 - (void) changeTeam: (int) newteam

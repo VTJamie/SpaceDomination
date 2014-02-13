@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		B900CF2818AC8DB8009396FA /* TimeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B900CF2718AC8DB8009396FA /* TimeFactory.m */; };
 		B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603918A1F7DD00BDD6C3 /* Menu.m */; };
 		B91A603D18A1F83100BDD6C3 /* StartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603C18A1F83100BDD6C3 /* StartButton.m */; };
 		B99712FE18A0760E001E884A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99712FD18A0760E001E884A /* Images.xcassets */; };
@@ -68,6 +69,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "App-Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B900CF2618AC8DB8009396FA /* TimeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFactory.h; sourceTree = "<group>"; };
+		B900CF2718AC8DB8009396FA /* TimeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFactory.m; sourceTree = "<group>"; };
 		B91A603818A1F7DD00BDD6C3 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B91A603918A1F7DD00BDD6C3 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		B91A603B18A1F83100BDD6C3 /* StartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButton.h; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 				B9FC696C18A8857D00A60F4B /* PlanetTouchEvent.m */,
 				B9FC696E18A94A0500A60F4B /* PlanetMenu.h */,
 				B9FC696F18A94A0500A60F4B /* PlanetMenu.m */,
+				B900CF2618AC8DB8009396FA /* TimeFactory.h */,
+				B900CF2718AC8DB8009396FA /* TimeFactory.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				B9FC695E18A7E8A900A60F4B /* Planet.m in Sources */,
 				B9FC696718A864B900A60F4B /* TouchBackgroundEvent.m in Sources */,
 				B9FC696D18A8857D00A60F4B /* PlanetTouchEvent.m in Sources */,
+				B900CF2818AC8DB8009396FA /* TimeFactory.m in Sources */,
 				B9FC696A18A86E8F00A60F4B /* GamePieceContainer.m in Sources */,
 				B9FC695418A73D8700A60F4B /* Background.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
