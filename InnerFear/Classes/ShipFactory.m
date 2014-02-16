@@ -6,9 +6,9 @@
 //
 //
 
-#import "TimeFactory.h"
+#import "ShipFactory.h"
 
-@implementation TimeFactory
+@implementation ShipFactory
 
 - (id) initWithTimeForUnit: (double) timeForUnit unitSize: (int) unitSize
 {

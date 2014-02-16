@@ -30,8 +30,6 @@
 
 - (void)setup
 {
-    
-    
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"spacedock.png"];
     background.pivotX = 0;
     background.pivotY = 0;
@@ -42,23 +40,11 @@
     //NSLog(@"%f, %f", background.width, background.height);
     [self addChild:background];
     
- 
     
-
-    SPImage *menubutton = [[SPImage alloc] initWithTexture: [Media atlasTexture:@"circuit"]];
-    menubutton.pivotX = 0;
-    menubutton.pivotY = 0;
-    menubutton.scaleY = 100 / menubutton.width;
-    menubutton.scaleX = 100 / menubutton.width;
-    menubutton.x = 0;
-    menubutton.y = Sparrow.stage.height - menubutton.height;
-    menubutton.alpha = 0.75;
-    [self addChild:menubutton];
-    
-    SPTextField *textField = [SPTextField textFieldWithWidth:menubutton.width height:menubutton.height
+    SPTextField *textField = [SPTextField textFieldWithWidth:100 height:40
                                                         text:@"Close" fontName:@"Helvetica" fontSize:12.0f color:0xff0000];
     textField.x = 0;
-    textField.y = Sparrow.stage.height - menubutton.height;
+    textField.y = Sparrow.stage.height - 40;
     textField.hAlign = SPHAlignCenter;  // horizontal alignment
     textField.vAlign = SPVAlignCenter; // vertical alignment
     

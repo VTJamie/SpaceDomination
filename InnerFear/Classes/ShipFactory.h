@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TimeFactory : NSObject
+@interface ShipFactory : NSObject
 
 
 

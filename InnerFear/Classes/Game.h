@@ -6,10 +6,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIDevice.h>
 #import "Fleet.h"
+#import "Background.h"
+#import "GamePieceContainer.h"
 
 #define EVENT_TYPE_NEW_CENTER_TRIGGERED @"newCenterLocationTriggered"
 #define EVENT_TYPE_MOVE_FLEET @"newFleetLocation"
 #define EVENT_TYPE_PLANET_TOUCH @"planetTouched"
+#define EVENT_TYPE_NEW_ZOOM @"newZoomTriggered"
 
 @interface Game : SPSprite
 
@@ -18,6 +21,9 @@
 @property (nonatomic, retain) SPPoint* currentcenter;
 @property (nonatomic, retain) Fleet* player;
 @property (nonatomic, retain) Fleet* computer;
+@property (nonatomic, retain) Background* backgroundSprite;
+@property (nonatomic, retain) GamePieceContainer* gamepieceSprite;
+
 
 @property (nonatomic, retain) SPJuggler* gameJuggler;
 @property (nonatomic, retain) SPJuggler* menuJuggler;
@@ -33,7 +39,7 @@
 @property (nonatomic, assign) int minY;
 @property (nonatomic, assign) int maxY;
 
-
+@property (nonatomic, assign) double overallscale;
 
 @end
 

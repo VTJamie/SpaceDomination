@@ -1,7 +1,5 @@
 <TextureAtlas imagePath='atlas@2x.png'>
-  <SubTexture name='circuit' x='0' y='0' width='566.0' height='256.0'/>
-  <SubTexture name='stars' x='567' y='0' width='314.0' height='314.0'/>
-  <SubTexture name='planet1' x='0' y='257' width='102.0' height='102.0'/>
-  <SubTexture name='planet2' x='0' y='360' width='102.0' height='102.0'/>
-  <SubTexture name='ship' x='103' y='257' width='80.0' height='50.0'/>
+  <SubTexture name='stars' x='0' y='0' width='314.0' height='314.0'/>
+  <SubTexture name='monoplanet' x='315' y='0' width='102.0' height='102.0'/>
+  <SubTexture name='ship' x='418' y='0' width='80.0' height='50.0'/>
 </TextureAtlas>

@@ -10,7 +10,7 @@
 #define GREEN_COLOR "GREEN"
 
 #import "SPSprite.h"
-#import "TimeFactory.h"
+#import "ShipFactory.h"
 
 @interface Planet : SPSprite
 
@@ -18,13 +18,13 @@
 @property (nonatomic, retain) SPImage* planetimage;
 @property (nonatomic, retain) SPPoint* spaceLoc;
 @property (nonatomic, assign) BOOL underattack;
-@property (nonatomic, retain) TimeFactory* shipFactory;
-
+@property (nonatomic, retain) ShipFactory* shipFactory;
+@property (nonatomic, retain) NSMutableArray* ships;
 
 
 //@property (nonatomic, retain) int team;
 
-- (id) initWithTeam: (int) team;
+- (id) initWithTeam: (int) team X: (double) x Y: (double) y;
 - (void) advanceTime: (double) passedTime;
 
 @end

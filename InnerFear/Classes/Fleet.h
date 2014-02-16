@@ -15,6 +15,7 @@
 @property (nonatomic, assign) int team;
 @property (nonatomic, retain) SPPoint* currentLoc;
 @property (nonatomic, retain) SPTween* currenttween;
+@property (nonatomic, assign) double fleetSpeedMultiplier;
 
 
 - (id)initWithSide: (int) team;

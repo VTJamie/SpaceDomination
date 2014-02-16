@@ -7,6 +7,7 @@
 //
 
 #import "Background.h"
+#import "ZoomChangedEvent.h"
 
 @implementation Background
 
@@ -27,16 +28,31 @@
 
 - (void)setup
 {
-    SPImage *tempimage = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"stars"]];
+    [self generateTiles];
+    [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
+        [[Game instance] addEventListener:@selector(onZoomChanged:) atObject:self forType:EVENT_TYPE_NEW_ZOOM];
     
-    int gameWidth  = Sparrow.stage.width;
-    int gameHeight = Sparrow.stage.height;
+}
+
+- (void) onZoomChanged: (ZoomChangedEvent*) zoomevent
+{
+    [self generateTiles];
+}
+
+- (void) generateTiles
+{
+    [self.tiles removeAllObjects];
+    [self removeAllChildren];
+    SPImage *tempimage = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"stars"]];
+    double gamezoom = [[Game instance] overallscale];
+    int gameWidth  = Sparrow.stage.width / gamezoom;
+    int gameHeight = Sparrow.stage.height / gamezoom;
     int imageWidth = tempimage.width;
     int imageHeight = tempimage.height;
     
-    int tileWidth = gameWidth / imageWidth + 2;
-    int tileHeight = gameHeight / imageHeight + 2;
- //   NSLog(@"%d, %d", tileWidth, tileHeight);
+    int tileWidth = gameWidth / imageWidth/gamezoom + 2;
+    int tileHeight = gameHeight / imageHeight/gamezoom + 2;
+       NSLog(@"%d, %d", tileWidth, tileHeight);
     
     for (int x = 0; x < tileWidth; x++)
     {
@@ -45,47 +61,53 @@
             SPImage* image = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"stars"]];
             image.pivotX = 0;
             image.pivotY = 0;
-            image.x = -imageWidth + imageWidth * x;
-            image.y = -imageHeight + imageHeight * y;
+            image.x = -imageWidth - [Game instance].x - [Game instance].currentcenter.x + imageWidth * x;
+            image.y = -imageHeight - [Game instance].y - [Game instance].currentcenter.y + imageHeight * y;
             [self.tiles addObject:image];
             [self addChild:image];
         }
     }
-    
-    [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
-    
 }
 
 - (void) redrawTiles: (SPPoint*) centerchange {
+    double gamezoom = [[Game instance] overallscale];
+    double gx = [Game instance].x;
+    double gy = [Game instance].y;
     for (SPImage* image in self.tiles)
     {
         image.x -= centerchange.x;
         image.y -= centerchange.y;
         
-        if (image.y > Sparrow.stage.height)
+        int x = image.x / gamezoom - gx;
+        int y = image.y / gamezoom - gy;
+        
+       // NSLog(@"%d, %d : %f, %f", x, y, gx, gy );
+        if (y > Sparrow.stage.height / gamezoom)
         {
-            image.y = -image.height + image.y - Sparrow.stage.height;
+         //   NSLog(@"%d, %f", y, Sparrow.stage.height);
+            image.y = -image.height + image.y - gx - Sparrow.stage.height / gamezoom;
         }
         
-        if (image.x > Sparrow.stage.width)
+        if (x > Sparrow.stage.width / gamezoom)
         {
-            image.x = -image.width + image.x - Sparrow.stage.width;
+            image.x = -image.width + image.x - gx - Sparrow.stage.width / gamezoom;
         }
         
-        if (image.x + image.width < 0)
+        if (x + image.width / gamezoom < 0)
         {
-            image.x = Sparrow.stage.width + (image.x + image.width);
+            image.x = Sparrow.stage.width / gamezoom + (image.x + image.width + gx);
         }
         
-        if (image.y + image.height < 0)
+        if (y + image.height / gamezoom < 0)
         {
-            image.y = Sparrow.stage.height + (image.y + image.height);
+            image.y = Sparrow.stage.height / gamezoom + (image.y + image.height + gx);
         }
     }
 }
 
 - (void) onCenterChange: (CenterChangeEvent*) event
 {
+ //   [self generateTiles];
     [self redrawTiles:event.change];
 }
 
