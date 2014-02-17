@@ -32,4 +32,6 @@
 - (Babylon*) popBabylon;
 - (Mako*) popMako;
 
+- (Ship*) getShipWithShields;
+
 @end

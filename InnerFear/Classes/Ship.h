@@ -14,11 +14,17 @@
 @property (nonatomic, assign) double attackSpeed;
 @property (nonatomic, assign) double maxShields;
 @property (nonatomic, assign) double currentShields;
+@property (nonatomic, assign) double accuracy;
 @property (nonatomic, assign) double cost;
 
 @property (nonatomic, assign) double attackPowerEnhancement;
 @property (nonatomic, assign) double attackSpeedEnhancement;
 @property (nonatomic, assign) double maxShieldsEnhancement;
-//@property (nonatomic, assign) double costEnhancement;
+@property (nonatomic, assign) double accuracyEnhancement;
+
+
+@property (nonatomic, assign) double timeelapsed;
+
+- (BOOL) advanceFight: (Ship*) target timepassed: (double) timepassed;
 
 @end

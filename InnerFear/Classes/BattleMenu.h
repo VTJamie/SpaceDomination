@@ -11,6 +11,16 @@
 
 @interface BattleMenu : SPSprite
 
+@property (nonatomic, retain) SPTextField* sapphireCount;
+@property (nonatomic, retain) SPTextField* babylonCount;
+@property (nonatomic, retain) SPTextField* makoCount;
+
+
+@property (nonatomic, retain) SPTextField* fleetSapphireCount;
+@property (nonatomic, retain) SPTextField* fleetBabylonCount;
+@property (nonatomic, retain) SPTextField* fleetMakoCount;
+
+
 - (id)initWithPlanet: (Planet*) planet;
 
 @property (nonatomic, retain) Planet* planet;

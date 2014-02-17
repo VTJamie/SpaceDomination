@@ -181,7 +181,17 @@
 }
 
 
-
+- (Ship*) getShipWithShields
+{
+    for (int i = 0; i < self.ships.count; i++)
+    {
+        if ([[self.ships objectAtIndex:i] currentShields] > 0)
+        {
+            return [self.ships objectAtIndex:i];
+        }
+    }
+    return nil;
+}
 
 
 @end
