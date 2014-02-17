@@ -7,6 +7,9 @@
 //
 
 #import "ShipFactory.h"
+#import "Sapphire.h"
+#import "Mako.h"
+#import "Babylon.h"
 
 @implementation ShipFactory
 
@@ -16,8 +19,14 @@
     if (self)
     {
         self.currentTime = 0.0;
+        self.accumulatedUnits = 0.0;
         self.timeForUnit = timeForUnit;
         self.unitSize = unitSize;
+        self.shiporder = [[NSMutableArray alloc] init];
+        [self.shiporder addObject:[Mako class]];
+        [self.shiporder addObject:[Sapphire class]];
+        [self.shiporder addObject:[Babylon class]];
+        
     }
     return self;
 }
@@ -36,7 +45,23 @@
     else {
         return 0;
     }
+    
+}
 
+- (NSArray*) getBuildUnits: (double) timePassed
+{
+    NSMutableArray* builtships = [[NSMutableArray alloc] init];
+    self.accumulatedUnits += [self getUnit:timePassed];
+    Ship* newship = [[[self.shiporder objectAtIndex:0] alloc] init];
+    while (self.accumulatedUnits > newship.cost) {
+        Class tempclass = [self.shiporder objectAtIndex:0];
+        [self.shiporder removeObjectAtIndex:0];
+        [self.shiporder addObject:tempclass];
+        [builtships addObject:newship];
+        newship = [[[self.shiporder objectAtIndex:0] alloc] init];
+        self.accumulatedUnits -= newship.cost;
+    }
+    return builtships;
 }
 
 @end

@@ -22,6 +22,7 @@
 		B9F4709018B142790030FD2E /* Ship.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F4708F18B142790030FD2E /* Ship.m */; };
 		B9F4709318B142930030FD2E /* Babylon.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F4709218B142930030FD2E /* Babylon.m */; };
 		B9F4709618B142F00030FD2E /* Mako.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F4709518B142F00030FD2E /* Mako.m */; };
+		B9F4709918B1AD700030FD2E /* BattleMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F4709818B1AD700030FD2E /* BattleMenu.m */; };
 		B9FC695418A73D8700A60F4B /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695318A73D8700A60F4B /* Background.m */; };
 		B9FC695B18A7DACA00A60F4B /* CenterChangeEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */; };
 		B9FC695E18A7E8A900A60F4B /* Planet.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FC695D18A7E8A900A60F4B /* Planet.m */; };
@@ -92,6 +93,8 @@
 		B9F4709218B142930030FD2E /* Babylon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Babylon.m; sourceTree = "<group>"; };
 		B9F4709418B142F00030FD2E /* Mako.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mako.h; sourceTree = "<group>"; };
 		B9F4709518B142F00030FD2E /* Mako.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mako.m; sourceTree = "<group>"; };
+		B9F4709718B1AD700030FD2E /* BattleMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMenu.h; sourceTree = "<group>"; };
+		B9F4709818B1AD700030FD2E /* BattleMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleMenu.m; sourceTree = "<group>"; };
 		B9FC695218A73D8700A60F4B /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		B9FC695318A73D8700A60F4B /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
 		B9FC695918A7DACA00A60F4B /* CenterChangeEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterChangeEvent.h; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 				B900CF2718AC8DB8009396FA /* ShipFactory.m */,
 				B9F4708218B031B80030FD2E /* ZoomChangedEvent.h */,
 				B9F4708318B031B80030FD2E /* ZoomChangedEvent.m */,
+				B9F4709718B1AD700030FD2E /* BattleMenu.h */,
+				B9F4709818B1AD700030FD2E /* BattleMenu.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				B9F4709018B142790030FD2E /* Ship.m in Sources */,
 				B900CF2818AC8DB8009396FA /* ShipFactory.m in Sources */,
 				B9FC696A18A86E8F00A60F4B /* GamePieceContainer.m in Sources */,
+				B9F4709918B1AD700030FD2E /* BattleMenu.m in Sources */,
 				B9FC695418A73D8700A60F4B /* Background.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				B9F4709318B142930030FD2E /* Babylon.m in Sources */,

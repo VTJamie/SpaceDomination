@@ -10,7 +10,9 @@
 #import "CenterChangeEvent.h"
 #import "ZoomChangedEvent.h"
 #import "PlanetTouchEvent.h"
-
+#import "Sapphire.h"
+#import "Babylon.h"
+#import "Mako.h"
 
 
 @implementation Planet
@@ -25,6 +27,7 @@
         self.shipFactory = [[ShipFactory alloc] initWithTimeForUnit:1.0 unitSize:1];
         self.x = x;
         self.y = y;
+        self.ships = [[NSMutableArray alloc] init];
         [self setup];
     }
     return self;
@@ -54,11 +57,9 @@
 {
     if (!self.underattack)
     {
-        int unit = [self.shipFactory getUnit:passedTime];
-        if (unit > 0)
-        {
-        //    NSLog(@"SHIP GENERATED FIGHT!: %d", unit);
-        }
+        [self.ships addObjectsFromArray:[self.shipFactory getBuildUnits:passedTime]];
+        SPEvent* shipbuiltevent = [[SPEvent alloc] initWithType:EVENT_TYPE_PLANET_FACTORY_UPDATE];
+        [self dispatchEvent:shipbuiltevent];
     }
 }
 
@@ -77,7 +78,7 @@
 
 - (void)setup
 {
-    Game* g = [Game instance];
+   // Game* g = [Game instance];
     
     self.planetimage = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"monoplanet"]];
     if (self.team == 1)
@@ -152,6 +153,87 @@
     }
 
     self.visible = makevisible;
+}
+
+- (NSArray*) sapphireShips
+{
+    NSMutableArray* ships = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.ships.count; i++)
+    {
+        if ([[[self.ships objectAtIndex: i] class] isSubclassOfClass:[Sapphire class]])
+        {
+            [ships addObject:[self.ships objectAtIndex:i]];
+        }
+    }
+    return ships;
+}
+- (NSArray*) babylonShips
+{
+    NSMutableArray* ships = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.ships.count; i++)
+    {
+        if ([[[self.ships objectAtIndex: i] class] isSubclassOfClass:[Babylon class]])
+        {
+            [ships addObject:[self.ships objectAtIndex:i]];
+        }
+    }
+
+    return ships;
+    
+}
+- (NSArray*) makoShips
+{
+    NSMutableArray* ships = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.ships.count; i++)
+    {
+        if ([[[self.ships objectAtIndex: i] class] isSubclassOfClass:[Mako class]])
+        {
+            [ships addObject:[self.ships objectAtIndex:i]];
+        }
+    }
+
+    return ships;
+    
+}
+
+- (Sapphire*) popSapphire
+{
+    for (int i = 0; i < self.ships.count; i++)
+    {
+        if ([[[self.ships objectAtIndex: i] class] isSubclassOfClass:[Sapphire class]])
+        {
+            Sapphire* ship = [self.ships objectAtIndex: i];
+            [self.ships removeObjectAtIndex:i];
+            return ship;
+        }
+    }
+    return nil;
+}
+- (Babylon*) popBabylon
+{
+    for (int i = 0; i < self.ships.count; i++)
+    {
+        if ([[[self.ships objectAtIndex: i] class] isSubclassOfClass:[Babylon class]])
+        {
+            Babylon* ship = [self.ships objectAtIndex: i];
+            [self.ships removeObjectAtIndex:i];
+            return ship;
+        }
+    }
+    return nil;
+}
+- (Mako*) popMako
+{
+    for (int i = 0; i < self.ships.count; i++)
+    {
+        if ([[[self.ships objectAtIndex: i] class] isSubclassOfClass:[Mako class]])
+        {
+            Mako* ship = [self.ships objectAtIndex: i];
+            [self.ships removeObjectAtIndex:i];
+            return ship;
+        }
+    }
+    return nil;
 }
 
 @end

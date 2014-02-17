@@ -13,6 +13,7 @@
 #define EVENT_TYPE_MOVE_FLEET @"newFleetLocation"
 #define EVENT_TYPE_PLANET_TOUCH @"planetTouched"
 #define EVENT_TYPE_NEW_ZOOM @"newZoomTriggered"
+#define EVENT_TYPE_PLANET_FACTORY_UPDATE @"planetFactoryUpdate"
 
 @interface Game : SPSprite
 
@@ -40,6 +41,7 @@
 @property (nonatomic, assign) int maxY;
 
 @property (nonatomic, assign) double overallscale;
+@property (nonatomic, assign) BOOL gameover;
 
 @end
 

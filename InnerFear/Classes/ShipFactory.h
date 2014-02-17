@@ -15,9 +15,12 @@
 @property (nonatomic, assign) int unitSize;
 @property (nonatomic, assign) double timeForUnit;
 @property (nonatomic, assign) double currentTime;
+@property (nonatomic, assign) double accumulatedUnits;
+@property (nonatomic, retain) NSMutableArray* shiporder;
 
 
 - (id) initWithTimeForUnit: (double) timeForUnit unitSize: (int) unitSize;
 - (int) getUnit: (double) timePassed;
+- (NSArray*) getBuildUnits: (double) timePassed;
 
 @end

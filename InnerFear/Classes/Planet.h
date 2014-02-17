@@ -22,9 +22,19 @@
 @property (nonatomic, retain) NSMutableArray* ships;
 
 
+
+
 //@property (nonatomic, retain) int team;
 
 - (id) initWithTeam: (int) team X: (double) x Y: (double) y;
 - (void) advanceTime: (double) passedTime;
+- (void) changeTeam: (int) team;
+- (NSArray*) sapphireShips;
+- (NSArray*) babylonShips;
+- (NSArray*) makoShips;
+
+- (Sapphire*) popSapphire;
+- (Babylon*) popBabylon;
+- (Mako*) popMako;
 
 @end

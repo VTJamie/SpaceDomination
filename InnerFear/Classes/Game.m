@@ -33,18 +33,18 @@
         gameInstance = self;
         self.gameJuggler = [SPJuggler juggler];
         self.menuJuggler = [SPJuggler juggler];
-        self.numberofplanets = 10;
+        self.numberofplanets = 2;
         double gamesize = (self.numberofplanets/2 * 60);
         self.minX = -gamesize;
         self.maxX = gamesize;
         self.minY = -gamesize;
         self.maxY = gamesize;
-
+        
         self.menuopened = NO;
         self.currentcenter = [[SPPoint alloc] init];
         self.planets = [[NSMutableArray alloc] init];
         self.overallscale = 1.0;
-        
+        self.gameover = NO;
         [self setup];
     }
     
@@ -66,7 +66,7 @@
     [Media initAtlas];      // loads your texture atlas -> see Media.h/Media.m
     //  [Media initSound];      // loads all your sounds    -> see Media.h/Media.m
     SPQuad* bgsprite = [[SPQuad alloc] initWithWidth:Sparrow.stage.width height:Sparrow.stage.height color:0x0000FF];
-
+    
     [self addChild:bgsprite];
     
     self.backgroundSprite = [[Background alloc] init];
@@ -110,18 +110,18 @@
     
     [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
     
-//    CenterChangeEvent* changecenter = [[CenterChangeEvent alloc] initWithType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
-//    
-//    changecenter.change.x = -self.player.x;
-//    changecenter.change.y = -self.player.y;
-//    
-//    self.currentcenter.x = self.currentcenter.x + changecenter.change.x;
-//    self.currentcenter.y = self.currentcenter.y + changecenter.change.y;
-//    
-//    changecenter.newcenter = self.currentcenter;
-//    
-//    [self dispatchEvent:changecenter];
-
+    //    CenterChangeEvent* changecenter = [[CenterChangeEvent alloc] initWithType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
+    //
+    //    changecenter.change.x = -self.player.x;
+    //    changecenter.change.y = -self.player.y;
+    //
+    //    self.currentcenter.x = self.currentcenter.x + changecenter.change.x;
+    //    self.currentcenter.y = self.currentcenter.y + changecenter.change.y;
+    //
+    //    changecenter.newcenter = self.currentcenter;
+    //
+    //    [self dispatchEvent:changecenter];
+    
 }
 
 - (void) planetTouch: (PlanetTouchEvent*) planetevent
@@ -131,16 +131,33 @@
 
 - (void)onEnterFrame:(SPEnterFrameEvent *)event
 {
-    [self.gameJuggler advanceTime:event.passedTime];
-    [self.menuJuggler advanceTime:event.passedTime];
-    [self.player advanceTime:event.passedTime];
-    [self.computer advanceTime:event.passedTime];
-    
-    for (int i = 0; i < self.planets.count; i++)
-    {
-        [[self.planets objectAtIndex:i] advanceTime:event.passedTime];
-    }
-    
+         BOOL foundenemy = NO;
+        BOOL foundplayer = NO;
+        for (int i = 0; i < self.planets.count; i++)
+        {
+            if ([[self.planets objectAtIndex:i] team] == self.computer.team)
+            {
+                foundenemy = YES;
+            }
+            else if ([[self.planets objectAtIndex:i] team] == self.player.team)
+            {
+                foundplayer = YES;
+            }
+        }
+        
+        self.gameover = !foundenemy || !foundplayer;
+        
+        if (!self.gameover)
+        {
+            for (int i = 0; i < self.planets.count; i++)
+            {
+                [[self.planets objectAtIndex:i] advanceTime:event.passedTime];
+            }
+            [self.gameJuggler advanceTime:event.passedTime];
+            [self.menuJuggler advanceTime:event.passedTime];
+            [self.player advanceTime:event.passedTime];
+            [self.computer advanceTime:event.passedTime];
+        }    
 }
 
 - (void) onTouch: (SPTouchEvent*) event {
@@ -188,35 +205,35 @@
     }
     else if ([touches count] == 2) {
         // two fingers touching -> rotate and scale
-//        SPTouch *touch1 = touches[0];
-//        SPTouch *touch2 = touches[1];
-//        
-//        SPPoint *touch1PrevPos = [touch1 previousLocationInSpace:self];
-//        SPPoint *touch1Pos = [touch1 locationInSpace:self];
-//        SPPoint *touch2PrevPos = [touch2 previousLocationInSpace:self];
-//        SPPoint *touch2Pos = [touch2 locationInSpace:self];
-//        
-//        SPPoint *prevVector = [touch1PrevPos subtractPoint:touch2PrevPos];
-//        SPPoint *vector = [touch1Pos subtractPoint:touch2Pos];
-//        
-//        // update pivot point based on previous center
-//        SPPoint *touch1PrevLocalPos = [touch1 previousLocationInSpace:self];
-//        SPPoint *touch2PrevLocalPos = [touch2 previousLocationInSpace:self];
-//        self.pivotX = (touch1PrevLocalPos.x + touch2PrevLocalPos.x) * 0.5f;
-//        self.pivotY = (touch1PrevLocalPos.y + touch2PrevLocalPos.y) * 0.5f;
-//        
-//        // update location based on the current center
-//        self.x = (touch1Pos.x + touch2Pos.x) * 0.5f;
-//        self.y = (touch1Pos.y + touch2Pos.y) * 0.5f;
-//        
-//       // float angleDiff = vector.angle - prevVector.angle;
-//       // self.rotation += angleDiff;
-//        
-//        float sizeDiff = vector.length / prevVector.length;
-//        self.scaleX = self.scaleY = MAX(0.5f, self.scaleX * sizeDiff);
-//        self.overallscale = self.scaleX;
-//        ZoomChangedEvent* changedzoom = [[ZoomChangedEvent alloc] initWithType:EVENT_TYPE_NEW_ZOOM];
-//        [self dispatchEvent:changedzoom];
+        //        SPTouch *touch1 = touches[0];
+        //        SPTouch *touch2 = touches[1];
+        //
+        //        SPPoint *touch1PrevPos = [touch1 previousLocationInSpace:self];
+        //        SPPoint *touch1Pos = [touch1 locationInSpace:self];
+        //        SPPoint *touch2PrevPos = [touch2 previousLocationInSpace:self];
+        //        SPPoint *touch2Pos = [touch2 locationInSpace:self];
+        //
+        //        SPPoint *prevVector = [touch1PrevPos subtractPoint:touch2PrevPos];
+        //        SPPoint *vector = [touch1Pos subtractPoint:touch2Pos];
+        //
+        //        // update pivot point based on previous center
+        //        SPPoint *touch1PrevLocalPos = [touch1 previousLocationInSpace:self];
+        //        SPPoint *touch2PrevLocalPos = [touch2 previousLocationInSpace:self];
+        //        self.pivotX = (touch1PrevLocalPos.x + touch2PrevLocalPos.x) * 0.5f;
+        //        self.pivotY = (touch1PrevLocalPos.y + touch2PrevLocalPos.y) * 0.5f;
+        //
+        //        // update location based on the current center
+        //        self.x = (touch1Pos.x + touch2Pos.x) * 0.5f;
+        //        self.y = (touch1Pos.y + touch2Pos.y) * 0.5f;
+        //
+        //       // float angleDiff = vector.angle - prevVector.angle;
+        //       // self.rotation += angleDiff;
+        //
+        //        float sizeDiff = vector.length / prevVector.length;
+        //        self.scaleX = self.scaleY = MAX(0.5f, self.scaleX * sizeDiff);
+        //        self.overallscale = self.scaleX;
+        //        ZoomChangedEvent* changedzoom = [[ZoomChangedEvent alloc] initWithType:EVENT_TYPE_NEW_ZOOM];
+        //        [self dispatchEvent:changedzoom];
     }
 }
 
