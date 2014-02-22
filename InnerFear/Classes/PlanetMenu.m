@@ -32,7 +32,7 @@
 {
     
     
-    SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"spacedock.png"];
+    SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"spacedockmenu.png"];
     background.pivotX = 0;
     background.pivotY = 0;
     background.x = 0;
@@ -42,9 +42,9 @@
     //NSLog(@"%f, %f", background.width, background.height);
     [self addChild:background];
     
-    SPQuad* bgmask = [[SPQuad alloc] initWithWidth:background.width height:background.height color:0x000000];
-    bgmask.alpha = 0.75;
-    [self addChild:bgmask];
+//    SPQuad* bgmask = [[SPQuad alloc] initWithWidth:background.width height:background.height color:0x000000];
+//    bgmask.alpha = 0.75;
+//    [self addChild:bgmask];
     
     SPTextField *textField = [SPTextField textFieldWithWidth:100 height:50
                                                         text:@"Close" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];

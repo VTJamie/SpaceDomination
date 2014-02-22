@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		B900CF2818AC8DB8009396FA /* ShipFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B900CF2718AC8DB8009396FA /* ShipFactory.m */; };
+		B906E5F518B86D2A00532BE7 /* spacedockmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B906E5F418B86D2A00532BE7 /* spacedockmenu.png */; };
 		B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603918A1F7DD00BDD6C3 /* Menu.m */; };
 		B91A603D18A1F83100BDD6C3 /* StartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603C18A1F83100BDD6C3 /* StartButton.m */; };
 		B99712FE18A0760E001E884A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99712FD18A0760E001E884A /* Images.xcassets */; };
@@ -77,6 +78,7 @@
 		8D1107310486CEB800E47090 /* App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B900CF2618AC8DB8009396FA /* ShipFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipFactory.h; sourceTree = "<group>"; };
 		B900CF2718AC8DB8009396FA /* ShipFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipFactory.m; sourceTree = "<group>"; };
+		B906E5F418B86D2A00532BE7 /* spacedockmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spacedockmenu.png; path = ../media/spacedockmenu.png; sourceTree = "<group>"; };
 		B91A603818A1F7DD00BDD6C3 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B91A603918A1F7DD00BDD6C3 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		B91A603B18A1F83100BDD6C3 /* StartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButton.h; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B906E5F418B86D2A00532BE7 /* spacedockmenu.png */,
 				B9FC697118A959CA00A60F4B /* spacedock.png */,
 				B99817D518A0726C003A5C33 /* Sparrow.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -413,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B906E5F518B86D2A00532BE7 /* spacedockmenu.png in Resources */,
 				B9FC697218A959CA00A60F4B /* spacedock.png in Resources */,
 				DE4F80E814E1541400655D44 /* sound.caf in Resources */,
 				DE4F80E914E1541400655D44 /* atlas.png in Resources */,
