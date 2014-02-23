@@ -30,8 +30,6 @@
 
 - (void)setup
 {
-    
-    
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"spacedockmenu.png"];
     background.pivotX = 0;
     background.pivotY = 0;
@@ -156,6 +154,16 @@
     [self.fleetMakoCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     [self.planet addEventListener:@selector(planetUpdated:) atObject:self forType:EVENT_TYPE_PLANET_FACTORY_UPDATE];
+    
+    [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
+}
+
+- (void)onEnterFrame:(SPEnterFrameEvent *)event
+{
+    if ([Game instance].playarea == nil || [Game instance].playarea.gameover)
+    {
+        [self removeFromParent];
+    }
 }
 
 - (void) planetUpdated: (SPEvent*) event

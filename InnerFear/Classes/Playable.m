@@ -115,6 +115,9 @@
         [self.player advanceTime:event.passedTime];
         [self.computer advanceTime:event.passedTime];
     }
+    else {
+        [[Game instance] showStartMenu];
+    }
 }
 
 - (void) onTouch: (SPTouchEvent*) event {

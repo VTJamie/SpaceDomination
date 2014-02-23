@@ -54,9 +54,25 @@
     [Media initAtlas];      // loads your texture atlas -> see Media.h/Media.m
     //  [Media initSound];      // loads all your sounds    -> see Media.h/Media.m
     
+    [self showStartMenu];
+}
+
+- (void) startGame
+{
+    [self removeAllChildren];
+    self.startmenu = nil;
     self.playarea = [[Playable alloc] init];
     [self addChild:self.playarea];
     [self.playarea start];
+}
+
+- (void) showStartMenu
+{
+    [self removeAllChildren];
+    self.playarea = nil;
+    self.startmenu = [[StartMenu alloc] init];
+    [self addChild:self.startmenu];
+    [self.startmenu setup];
 }
 
 +(Game*) instance

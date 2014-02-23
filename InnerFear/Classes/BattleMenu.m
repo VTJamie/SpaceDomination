@@ -96,7 +96,10 @@
 
 - (void) onBattleWon: (SPEvent*) event {
     [self removeFromParent];
-    [Sparrow.stage addChild:[[PlanetMenu alloc] initWithPlanet:self.battleEngine.planet]];
+    if ([Game instance].playarea && ![Game instance].playarea.gameover)
+    {
+        [Sparrow.stage addChild:[[PlanetMenu alloc] initWithPlanet:self.battleEngine.planet]];
+    }
 }
 
 - (void) onBattleLost: (SPEvent*) event {
@@ -105,7 +108,13 @@
 
 - (void)onEnterFrame:(SPEnterFrameEvent *)event
 {
-    [self updateTexts];
+    if ([Game instance].playarea && ![Game instance].playarea.gameover)
+    {
+        [self updateTexts];
+    }
+    else {
+        [self removeFromParent];
+    }
 }
 
 - (void) updateTexts

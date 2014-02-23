@@ -9,6 +9,7 @@
 #import "Background.h"
 #import "GamePieceContainer.h"
 #import "Playable.h"
+#import "StartMenu.h"
 
 #define EVENT_TYPE_NEW_CENTER_TRIGGERED @"newCenterLocationTriggered"
 #define EVENT_TYPE_MOVE_FLEET @"newFleetLocation"
@@ -23,6 +24,11 @@
 @property (nonatomic, retain) SPJuggler* menuJuggler;
 
 @property (nonatomic, retain) Playable* playarea;
+@property (nonatomic, retain) StartMenu* startmenu;
+
+
+- (void) startGame;
+- (void) showStartMenu;
 
 
 @end

@@ -16,8 +16,7 @@
 		B906E5F518B86D2A00532BE7 /* spacedockmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B906E5F418B86D2A00532BE7 /* spacedockmenu.png */; };
 		B914981418B9C91D00E2CBB5 /* BattleEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B914981318B9C91D00E2CBB5 /* BattleEngine.m */; };
 		B914981B18BA82A800E2CBB5 /* Playable.m in Sources */ = {isa = PBXBuildFile; fileRef = B914981A18BA82A800E2CBB5 /* Playable.m */; };
-		B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603918A1F7DD00BDD6C3 /* Menu.m */; };
-		B91A603D18A1F83100BDD6C3 /* StartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603C18A1F83100BDD6C3 /* StartButton.m */; };
+		B91A603A18A1F7DD00BDD6C3 /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603918A1F7DD00BDD6C3 /* StartMenu.m */; };
 		B99712FE18A0760E001E884A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99712FD18A0760E001E884A /* Images.xcassets */; };
 		B99817DE18A0727A003A5C33 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B99817DB18A0726D003A5C33 /* libSparrow.a */; };
 		B9F4708418B031B80030FD2E /* ZoomChangedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F4708318B031B80030FD2E /* ZoomChangedEvent.m */; };
@@ -85,10 +84,8 @@
 		B914981318B9C91D00E2CBB5 /* BattleEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleEngine.m; sourceTree = "<group>"; };
 		B914981918BA82A800E2CBB5 /* Playable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playable.h; sourceTree = "<group>"; };
 		B914981A18BA82A800E2CBB5 /* Playable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playable.m; sourceTree = "<group>"; };
-		B91A603818A1F7DD00BDD6C3 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
-		B91A603918A1F7DD00BDD6C3 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
-		B91A603B18A1F83100BDD6C3 /* StartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButton.h; sourceTree = "<group>"; };
-		B91A603C18A1F83100BDD6C3 /* StartButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartButton.m; sourceTree = "<group>"; };
+		B91A603818A1F7DD00BDD6C3 /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
+		B91A603918A1F7DD00BDD6C3 /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenu.m; sourceTree = "<group>"; };
 		B99712FD18A0760E001E884A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = InnerFear/Images.xcassets; sourceTree = "<group>"; };
 		B99817D518A0726C003A5C33 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = Sparrow/Sparrow.xcodeproj; sourceTree = "<group>"; };
 		B9F4708218B031B80030FD2E /* ZoomChangedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomChangedEvent.h; sourceTree = "<group>"; };
@@ -278,10 +275,8 @@
 		B91A603718A1F77400BDD6C3 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				B91A603818A1F7DD00BDD6C3 /* Menu.h */,
-				B91A603918A1F7DD00BDD6C3 /* Menu.m */,
-				B91A603B18A1F83100BDD6C3 /* StartButton.h */,
-				B91A603C18A1F83100BDD6C3 /* StartButton.m */,
+				B91A603818A1F7DD00BDD6C3 /* StartMenu.h */,
+				B91A603918A1F7DD00BDD6C3 /* StartMenu.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -461,9 +456,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B914981B18BA82A800E2CBB5 /* Playable.m in Sources */,
-				B91A603D18A1F83100BDD6C3 /* StartButton.m in Sources */,
 				B9F4708D18B142690030FD2E /* Sapphire.m in Sources */,
-				B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */,
+				B91A603A18A1F7DD00BDD6C3 /* StartMenu.m in Sources */,
 				B9FC697018A94A0500A60F4B /* PlanetMenu.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				B9FC695B18A7DACA00A60F4B /* CenterChangeEvent.m in Sources */,
