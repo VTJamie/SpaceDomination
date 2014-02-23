@@ -8,6 +8,7 @@
 
 #import "SPSprite.h"
 #import "Planet.h"
+#import "BattleEngine.h"
 
 @interface BattleMenu : SPSprite
 
@@ -20,9 +21,9 @@
 @property (nonatomic, retain) SPTextField* fleetBabylonCount;
 @property (nonatomic, retain) SPTextField* fleetMakoCount;
 
+@property (nonatomic, retain) BattleEngine* battleEngine;
+
 
 - (id)initWithPlanet: (Planet*) planet;
-
-@property (nonatomic, retain) Planet* planet;
 
 @end

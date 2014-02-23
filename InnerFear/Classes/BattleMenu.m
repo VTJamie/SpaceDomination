@@ -9,6 +9,7 @@
 #import "BattleMenu.h"
 #import "Planet.h"
 #import "PlanetMenu.h"
+#import "BattleEngine.h"
 
 @implementation BattleMenu
 
@@ -16,8 +17,7 @@
 {
     if ((self = [super init]))
     {
-        self.planet = planet;
-        self.planet.underattack = YES;
+        self.battleEngine = [[BattleEngine alloc] initWithPlanet:planet Fleet: [Game instance].player];
         [self setup];
     }
     
@@ -32,7 +32,7 @@
 
 - (void)setup
 {
-        double rightcolumnwidth = 150.0;
+    double rightcolumnwidth = 150.0;
     
     SPImage *background = [[SPImage alloc] initWithContentsOfFile:@"spacedock.png"];
     background.pivotX = 0;
@@ -48,18 +48,7 @@
     bgmask.alpha = 0.75;
     [self addChild:bgmask];
     
-    for (int i = 0; i < self.planet.ships.count; i++)
-    {
-        Ship* curship = [self.planet.ships objectAtIndex:i];
-        curship.currentShields = curship.maxShields;
-    }
-    
-    for (int i = 0; i < [Game instance].player.ships.count; i++)
-    {
-        Ship* curship = [[Game instance].player.ships objectAtIndex:i];
-        curship.currentShields = curship.maxShields;
-    }
-    
+       
     self.sapphireCount = [[SPTextField alloc] initWithWidth:rightcolumnwidth height:50 text:@"0: Sapphire" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
     self.sapphireCount.x = Sparrow.stage.width - rightcolumnwidth;
     self.sapphireCount.y = 50;
@@ -97,87 +86,33 @@
     self.fleetMakoCount.hAlign = SPHAlignLeft;  // horizontal alignment
     [self addChild:self.fleetMakoCount];
     
+    
     [self addEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
+    [self.battleEngine addEventListener:@selector(onBattleWon:) atObject:self forType:EVENT_BATTLE_WON];
+    [self.battleEngine addEventListener:@selector(onBattleLost:) atObject:self forType:EVENT_BATTLE_LOST];
+    
+    [self.battleEngine setup];
+}
+
+- (void) onBattleWon: (SPEvent*) event {
+    [self removeFromParent];
+    [Sparrow.stage addChild:[[PlanetMenu alloc] initWithPlanet:self.battleEngine.planet]];
+}
+
+- (void) onBattleLost: (SPEvent*) event {
+    [self removeFromParent];
 }
 
 - (void)onEnterFrame:(SPEnterFrameEvent *)event
 {
-    Fleet* player = [Game instance].player;
-    if (player.ships.count == 0)
-    {
-        NSLog(@"PLAYER HAS LOST!");
-        self.planet.underattack = NO;
-        [self removeFromParent];
-        [self removeEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
-    }
-    else if (self.planet.ships.count == 0) {
-        NSLog(@"PLAYER HAS WON!");
-        self.planet.underattack = NO;
-        [self removeFromParent];
-        [self removeEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
-        [self.planet changeTeam:player.team];
-        [Sparrow.stage addChild:[[PlanetMenu alloc] initWithPlanet:self.planet]];
-    }
-    else
-    {
-        [self handleAttacks: event.passedTime];
-    }
-}
-
-- (void) handleAttacks: (double) timepassed
-{
-    
-    [self adjustShipEnhancements:self.planet.ships timepassed:timepassed];
-    [self adjustShipEnhancements:[Game instance].player.ships timepassed:timepassed];
-    
-    for (int i = 0; i < self.planet.ships.count; i++)
-    {
-        Ship* target = [[Game instance].player getShipWithShields];
-        BOOL attacked = [[self.planet.ships objectAtIndex:i] advanceFight: target timepassed:timepassed];
-        if (attacked)
-        {
-         //   NSLog(@"PLANET SHIP ATTACKED!");
-        }
-    }
-    
-    for (int i = 0; i < [Game instance].player.ships.count; i++)
-    {
-        Ship* target =[self.planet getShipWithShields];
-        BOOL attacked = [[[Game instance].player.ships objectAtIndex:i] advanceFight:target timepassed:timepassed];
-        if (attacked)
-        {
-//            NSLog(@"PLAYER SHIP ATTACKED!");
-        }
-    }
-    
-    for (int i = 0; i < self.planet.ships.count; i++)
-    {
-        if ([[self.planet.ships objectAtIndex:i] currentShields] <= 0)
-        {
-        //    NSLog(@"PLANET SHIP DESTROYED");
-            [self.planet.ships removeObjectAtIndex:i];
-            i--;
-        }
-    }
-    
-    for (int i = 0; i < [Game instance].player.ships.count; i++)
-    {
-        if ([[[Game instance].player.ships objectAtIndex:i] currentShields] <= 0)
-        {
-         //   NSLog(@"PLAYER SHIP DESTROYED");
-            [[Game instance].player.ships removeObjectAtIndex:i];
-            i--;
-        }
-    }
-    
     [self updateTexts];
 }
 
 - (void) updateTexts
 {
-    NSArray* makoships = [self.planet makoShips];
-    NSArray* sapphireships = [self.planet sapphireShips];
-    NSArray* babylonships = [self.planet babylonShips];
+    NSArray* makoships = [self.battleEngine.planet makoShips];
+    NSArray* sapphireships = [self.battleEngine.planet sapphireShips];
+    NSArray* babylonships = [self.battleEngine.planet babylonShips];
     
     NSArray* fleetMakoships = [[Game instance].player makoShips];
     NSArray* fleetSapphireships = [[Game instance].player sapphireShips];
@@ -192,31 +127,6 @@
     self.fleetBabylonCount.text = [NSString stringWithFormat:@"Babylon: %d", fleetBabylonships.count];
 }
 
-- (void) adjustShipEnhancements: (NSArray*) shiparray timepassed: (double) timepassed
-{
-    double accuracyBoost = 1.0;
-    double attackPowerBoost = 1.0;
-    double attackSpeedBoost = 1.0;
-    double maxShieldsBoost = 0.0;
-    
-   
-    for (Ship* ship in shiparray)
-    {
-        accuracyBoost += ship.accuracyBoost;
-        attackPowerBoost += ship.attackPowerBoost;
-        attackSpeedBoost += ship.attackSpeedBoost;
-        maxShieldsBoost += ship.shieldRegenerateBoost;
-    }
-    
-    for (Ship* ship in shiparray)
-    {
-        ship.accuracyEnhancement = accuracyBoost;
-        ship.attackPowerEnhancement = attackPowerBoost;
-        ship.attackSpeedEnhancement = attackSpeedBoost;
-        ship.shieldRegenerateEnhancement = maxShieldsBoost;
-        
-        [ship advanceShieldRegeneration: timepassed];
-    }
-}
+
 
 @end
