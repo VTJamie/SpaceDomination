@@ -13,7 +13,7 @@
 
 @implementation ShipFactory
 
-- (id) initWithTimeForUnit: (double) timeForUnit unitSize: (int) unitSize
+- (id) initWithTimeForUnit: (double) timeForUnit unitSize: (double) unitSize
 {
     self = [super init];
     if (self)
@@ -31,7 +31,7 @@
     return self;
 }
 
-- (int) getUnit: (double) timePassed
+- (double) getUnit: (double) timePassed
 {
     int numberofunits;
     self.currentTime += timePassed;

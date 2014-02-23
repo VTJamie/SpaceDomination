@@ -20,13 +20,14 @@
 @property (nonatomic, assign) BOOL underattack;
 @property (nonatomic, retain) ShipFactory* shipFactory;
 @property (nonatomic, retain) NSMutableArray* ships;
+@property (nonatomic, assign) double size;
 
 
 
 
 //@property (nonatomic, retain) int team;
 
-- (id) initWithTeam: (int) team X: (double) x Y: (double) y;
+- (id) initWithTeam: (int) team X: (double) x Y: (double) y size: (double) size;
 - (void) advanceTime: (double) passedTime;
 - (void) changeTeam: (int) team;
 - (NSArray*) sapphireShips;

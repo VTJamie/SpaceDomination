@@ -76,12 +76,12 @@
     self.computer = [[Fleet alloc] initWithSide:2];
     self.player = [[Fleet alloc] initWithSide:1];
     
-    Planet* playerplanet = [[Planet alloc] initWithTeam:1 X: 0 Y: 0];
+    Planet* playerplanet = [[Planet alloc] initWithTeam:1 X: 0 Y: 0 size: 2.0];
     [playerplanet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
     [self.planets addObject:playerplanet];
     [self.gamepieceSprite addChild:playerplanet];
     
-    Planet* computerplanet = [[Planet alloc] initWithTeam:2 X: self.maxX + 60 Y: self.maxY + 60];
+    Planet* computerplanet = [[Planet alloc] initWithTeam:2 X: self.maxX + 60 Y: self.maxY + 60 size: 2.0];
     [computerplanet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
     [self.planets addObject:computerplanet];
     [self.gamepieceSprite addChild:computerplanet];
@@ -96,7 +96,7 @@
     {
         for (int j = 1; j <= self.numberofplanets/2; j++)
         {
-            Planet* planet = [[Planet alloc] initWithTeam:0 X: i*60 Y: j*60];
+            Planet* planet = [[Planet alloc] initWithTeam:0 X: i*60 Y: j*60 size: 1.0];
             [planet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
             [self.planets addObject:planet];
             [self.gamepieceSprite addChild:planet];

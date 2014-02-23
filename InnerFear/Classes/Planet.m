@@ -17,16 +17,19 @@
 
 @implementation Planet
 
-- (id) initWithTeam: (int) team X: (double) x Y: (double) y
+- (id) initWithTeam: (int) team X: (double) x Y: (double) y size: (double) size
 {
     if ((self = [super init]))
     {
         self.team = team;
         self.underattack = NO;
         self.spaceLoc = [[SPPoint alloc] init];
-        self.shipFactory = [[ShipFactory alloc] initWithTimeForUnit:1.0 unitSize:1];
+        self.size = size;
+        self.shipFactory = [[ShipFactory alloc] initWithTimeForUnit:1.0 unitSize:size];
         self.x = x;
         self.y = y;
+        self.scaleX = size;
+        self.scaleY = size;
         self.ships = [[NSMutableArray alloc] init];
         [self setup];
     }

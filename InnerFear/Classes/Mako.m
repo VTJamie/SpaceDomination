@@ -15,6 +15,10 @@
     self = [super init];
     if (self)
     {
+        self.cost = 1.0;
+        self.attackSpeed = 0.5;
+        self.attackPower = 0.5;
+        self.maxShields = 0.5;
     }
     return self;
 }
