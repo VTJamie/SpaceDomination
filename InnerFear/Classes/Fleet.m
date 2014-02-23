@@ -58,7 +58,7 @@
     
     if (self.team == 1)
     {
-        [[Game instance] addEventListener:@selector(flyToPlanetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
+        [[Game instance].playarea addEventListener:@selector(flyToPlanetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
     }
 }
 

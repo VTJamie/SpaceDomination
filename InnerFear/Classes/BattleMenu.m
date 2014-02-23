@@ -17,7 +17,7 @@
 {
     if ((self = [super init]))
     {
-        self.battleEngine = [[BattleEngine alloc] initWithPlanet:planet Fleet: [Game instance].player];
+        self.battleEngine = [[BattleEngine alloc] initWithPlanet:planet Fleet: [Game instance].playarea.player];
         [self setup];
     }
     
@@ -114,9 +114,9 @@
     NSArray* sapphireships = [self.battleEngine.planet sapphireShips];
     NSArray* babylonships = [self.battleEngine.planet babylonShips];
     
-    NSArray* fleetMakoships = [[Game instance].player makoShips];
-    NSArray* fleetSapphireships = [[Game instance].player sapphireShips];
-    NSArray* fleetBabylonships = [[Game instance].player babylonShips];
+    NSArray* fleetMakoships = [[Game instance].playarea.player makoShips];
+    NSArray* fleetSapphireships = [[Game instance].playarea.player sapphireShips];
+    NSArray* fleetBabylonships = [[Game instance].playarea.player babylonShips];
     
     self.sapphireCount.text = [NSString stringWithFormat:@"%d: Sapphire", sapphireships.count];
     self.makoCount.text = [NSString stringWithFormat:@"%d: Mako", makoships.count];

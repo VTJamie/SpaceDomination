@@ -106,9 +106,9 @@
     self.spaceLoc.y = self.y;
     
     [self determineVisibility];
-    [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
+    [[Game instance].playarea addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
     
-    [[Game instance] addEventListener:@selector(onZoomChanged:) atObject:self forType:EVENT_TYPE_NEW_ZOOM];
+    [[Game instance].playarea addEventListener:@selector(onZoomChanged:) atObject:self forType:EVENT_TYPE_NEW_ZOOM];
     
     [self addEventListener:@selector(onTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
@@ -144,7 +144,7 @@
 - (void) determineVisibility
 {
     BOOL makevisible = YES;
-    double gamezoom = [[Game instance] overallscale];
+    double gamezoom = [Game instance].playarea.overallscale;
     int x = (self.x + self.parent.x + [Game instance].x - self.planetimage.width / 2.0) * gamezoom;
     int y = (self.y + self.parent.y + [Game instance].y - self.planetimage.height / 2.0) * gamezoom;
     

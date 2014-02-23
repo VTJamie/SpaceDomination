@@ -164,9 +164,9 @@
     NSArray* sapphireships = [self.planet sapphireShips];
     NSArray* babylonships = [self.planet babylonShips];
     
-    NSArray* fleetMakoships = [[Game instance].player makoShips];
-    NSArray* fleetSapphireships = [[Game instance].player sapphireShips];
-    NSArray* fleetBabylonships = [[Game instance].player babylonShips];
+    NSArray* fleetMakoships = [[Game instance].playarea.player makoShips];
+    NSArray* fleetSapphireships = [[Game instance].playarea.player sapphireShips];
+    NSArray* fleetBabylonships = [[Game instance].playarea.player babylonShips];
     
     self.sapphireCount.text = [NSString stringWithFormat:@"%d: Sapphire", sapphireships.count];
     self.makoCount.text = [NSString stringWithFormat:@"%d: Mako", makoships.count];
@@ -191,7 +191,7 @@
         moveship = [self.planet popBabylon];
         if (moveship)
         {
-            [[Game instance].player.ships addObject: moveship];
+            [[Game instance].playarea.player.ships addObject: moveship];
         }
     }
     else if (planetMako)
@@ -199,7 +199,7 @@
         moveship = [self.planet popMako];
         if (moveship)
         {
-            [[Game instance].player.ships addObject: moveship];
+            [[Game instance].playarea.player.ships addObject: moveship];
         }
 
     }
@@ -208,13 +208,13 @@
         moveship = [self.planet popSapphire];
         if (moveship)
         {
-            [[Game instance].player.ships addObject: moveship];
+            [[Game instance].playarea.player.ships addObject: moveship];
         }
 
     }
     else if (fleetBabylon)
     {
-        moveship = [[Game instance].player popBabylon];
+        moveship = [[Game instance].playarea.player popBabylon];
         if (moveship)
         {
             [self.planet.ships addObject: moveship];
@@ -222,7 +222,7 @@
     }
     else if (fleetMako)
     {
-        moveship = [[Game instance].player popMako];
+        moveship = [[Game instance].playarea.player popMako];
         if (moveship)
         {
             [self.planet.ships addObject: moveship];
@@ -231,7 +231,7 @@
     }
     else if (fleetSapphire)
     {
-        moveship = [[Game instance].player popSapphire];
+        moveship = [[Game instance].playarea.player popSapphire];
         if (moveship)
         {
             [self.planet.ships addObject: moveship];

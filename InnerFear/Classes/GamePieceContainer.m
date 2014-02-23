@@ -32,7 +32,7 @@
 
 - (void)setup
 {
-        [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
+        [[Game instance].playarea addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
 }
 
 - (void) onCenterChange: (CenterChangeEvent*) event

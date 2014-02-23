@@ -29,8 +29,8 @@
 - (void)setup
 {
     [self generateTiles];
-    [[Game instance] addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
-        [[Game instance] addEventListener:@selector(onZoomChanged:) atObject:self forType:EVENT_TYPE_NEW_ZOOM];
+    [[Game instance].playarea addEventListener:@selector(onCenterChange:) atObject:self forType:EVENT_TYPE_NEW_CENTER_TRIGGERED];
+    [[Game instance].playarea addEventListener:@selector(onZoomChanged:) atObject:self forType:EVENT_TYPE_NEW_ZOOM];
     
 }
 
@@ -44,15 +44,16 @@
     [self.tiles removeAllObjects];
     [self removeAllChildren];
     SPImage *tempimage = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"stars"]];
-    double gamezoom = [[Game instance] overallscale];
+    double gamezoom = [Game instance].playarea.overallscale;
     int gameWidth  = Sparrow.stage.width / gamezoom;
     int gameHeight = Sparrow.stage.height / gamezoom;
     int imageWidth = tempimage.width;
     int imageHeight = tempimage.height;
+
     
     int tileWidth = gameWidth / imageWidth/gamezoom + 2;
     int tileHeight = gameHeight / imageHeight/gamezoom + 2;
-       NSLog(@"%d, %d", tileWidth, tileHeight);
+       NSLog(@"%d, %d : %d, %d", tileWidth, tileHeight, gameWidth, gameHeight);
     
     for (int x = 0; x < tileWidth; x++)
     {
@@ -61,8 +62,8 @@
             SPImage* image = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"stars"]];
             image.pivotX = 0;
             image.pivotY = 0;
-            image.x = -imageWidth - [Game instance].x - [Game instance].currentcenter.x + imageWidth * x;
-            image.y = -imageHeight - [Game instance].y - [Game instance].currentcenter.y + imageHeight * y;
+            image.x = -imageWidth - [Game instance].playarea.x - [Game instance].playarea.currentcenter.x + imageWidth * x;
+            image.y = -imageHeight - [Game instance].playarea.y - [Game instance].playarea.currentcenter.y + imageHeight * y;
             [self.tiles addObject:image];
             [self addChild:image];
         }
@@ -70,7 +71,7 @@
 }
 
 - (void) redrawTiles: (SPPoint*) centerchange {
-    double gamezoom = [[Game instance] overallscale];
+    double gamezoom = [Game instance].playarea.overallscale;
     double gx = [Game instance].x;
     double gy = [Game instance].y;
     for (SPImage* image in self.tiles)

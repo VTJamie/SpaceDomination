@@ -15,6 +15,7 @@
 		B900CF2818AC8DB8009396FA /* ShipFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B900CF2718AC8DB8009396FA /* ShipFactory.m */; };
 		B906E5F518B86D2A00532BE7 /* spacedockmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B906E5F418B86D2A00532BE7 /* spacedockmenu.png */; };
 		B914981418B9C91D00E2CBB5 /* BattleEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B914981318B9C91D00E2CBB5 /* BattleEngine.m */; };
+		B914981B18BA82A800E2CBB5 /* Playable.m in Sources */ = {isa = PBXBuildFile; fileRef = B914981A18BA82A800E2CBB5 /* Playable.m */; };
 		B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603918A1F7DD00BDD6C3 /* Menu.m */; };
 		B91A603D18A1F83100BDD6C3 /* StartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603C18A1F83100BDD6C3 /* StartButton.m */; };
 		B99712FE18A0760E001E884A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99712FD18A0760E001E884A /* Images.xcassets */; };
@@ -82,6 +83,8 @@
 		B906E5F418B86D2A00532BE7 /* spacedockmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spacedockmenu.png; path = ../media/spacedockmenu.png; sourceTree = "<group>"; };
 		B914981218B9C91D00E2CBB5 /* BattleEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleEngine.h; sourceTree = "<group>"; };
 		B914981318B9C91D00E2CBB5 /* BattleEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleEngine.m; sourceTree = "<group>"; };
+		B914981918BA82A800E2CBB5 /* Playable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playable.h; sourceTree = "<group>"; };
+		B914981A18BA82A800E2CBB5 /* Playable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playable.m; sourceTree = "<group>"; };
 		B91A603818A1F7DD00BDD6C3 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B91A603918A1F7DD00BDD6C3 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		B91A603B18A1F83100BDD6C3 /* StartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButton.h; sourceTree = "<group>"; };
@@ -230,6 +233,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B914981718BA81D600E2CBB5 /* Playable */ = {
+			isa = PBXGroup;
+			children = (
+				B914981818BA822500E2CBB5 /* Events */,
+				B9F4708A18B142480030FD2E /* Ships */,
+				B9FC695218A73D8700A60F4B /* Background.h */,
+				B9FC695318A73D8700A60F4B /* Background.m */,
+				B9FC695C18A7E8A900A60F4B /* Planet.h */,
+				B9FC695D18A7E8A900A60F4B /* Planet.m */,
+				B9FC695F18A8359E00A60F4B /* Fleet.h */,
+				B9FC696018A8359E00A60F4B /* Fleet.m */,
+				B9FC696818A86E8F00A60F4B /* GamePieceContainer.h */,
+				B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */,
+				B9FC696E18A94A0500A60F4B /* PlanetMenu.h */,
+				B9FC696F18A94A0500A60F4B /* PlanetMenu.m */,
+				B900CF2618AC8DB8009396FA /* ShipFactory.h */,
+				B900CF2718AC8DB8009396FA /* ShipFactory.m */,
+				B9F4709718B1AD700030FD2E /* BattleMenu.h */,
+				B9F4709818B1AD700030FD2E /* BattleMenu.m */,
+				B914981218B9C91D00E2CBB5 /* BattleEngine.h */,
+				B914981318B9C91D00E2CBB5 /* BattleEngine.m */,
+				B914981918BA82A800E2CBB5 /* Playable.h */,
+				B914981A18BA82A800E2CBB5 /* Playable.m */,
+			);
+			name = Playable;
+			sourceTree = "<group>";
+		};
+		B914981818BA822500E2CBB5 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				B9FC695918A7DACA00A60F4B /* CenterChangeEvent.h */,
+				B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */,
+				B9FC696518A864B900A60F4B /* TouchBackgroundEvent.h */,
+				B9FC696618A864B900A60F4B /* TouchBackgroundEvent.m */,
+				B9FC696B18A8857D00A60F4B /* PlanetTouchEvent.h */,
+				B9FC696C18A8857D00A60F4B /* PlanetTouchEvent.m */,
+				B9F4708218B031B80030FD2E /* ZoomChangedEvent.h */,
+				B9F4708318B031B80030FD2E /* ZoomChangedEvent.m */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
 		B91A603718A1F77400BDD6C3 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,35 +320,11 @@
 		DE4F80D714E153EA00655D44 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				B9F4708A18B142480030FD2E /* Ships */,
-				B9FC695218A73D8700A60F4B /* Background.h */,
-				B9FC695318A73D8700A60F4B /* Background.m */,
-				B9FC695C18A7E8A900A60F4B /* Planet.h */,
-				B9FC695D18A7E8A900A60F4B /* Planet.m */,
+				B914981718BA81D600E2CBB5 /* Playable */,
 				DE4A3DE310FFB2AF00FDA492 /* Game.h */,
 				DE4A3DE410FFB2AF00FDA492 /* Game.m */,
 				DE4F80D414E153E600655D44 /* Media.h */,
 				DE4F80D514E153E600655D44 /* Media.m */,
-				B9FC695918A7DACA00A60F4B /* CenterChangeEvent.h */,
-				B9FC695A18A7DACA00A60F4B /* CenterChangeEvent.m */,
-				B9FC695F18A8359E00A60F4B /* Fleet.h */,
-				B9FC696018A8359E00A60F4B /* Fleet.m */,
-				B9FC696518A864B900A60F4B /* TouchBackgroundEvent.h */,
-				B9FC696618A864B900A60F4B /* TouchBackgroundEvent.m */,
-				B9FC696818A86E8F00A60F4B /* GamePieceContainer.h */,
-				B9FC696918A86E8F00A60F4B /* GamePieceContainer.m */,
-				B9FC696B18A8857D00A60F4B /* PlanetTouchEvent.h */,
-				B9FC696C18A8857D00A60F4B /* PlanetTouchEvent.m */,
-				B9FC696E18A94A0500A60F4B /* PlanetMenu.h */,
-				B9FC696F18A94A0500A60F4B /* PlanetMenu.m */,
-				B900CF2618AC8DB8009396FA /* ShipFactory.h */,
-				B900CF2718AC8DB8009396FA /* ShipFactory.m */,
-				B9F4708218B031B80030FD2E /* ZoomChangedEvent.h */,
-				B9F4708318B031B80030FD2E /* ZoomChangedEvent.m */,
-				B9F4709718B1AD700030FD2E /* BattleMenu.h */,
-				B9F4709818B1AD700030FD2E /* BattleMenu.m */,
-				B914981218B9C91D00E2CBB5 /* BattleEngine.h */,
-				B914981318B9C91D00E2CBB5 /* BattleEngine.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -439,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B914981B18BA82A800E2CBB5 /* Playable.m in Sources */,
 				B91A603D18A1F83100BDD6C3 /* StartButton.m in Sources */,
 				B9F4708D18B142690030FD2E /* Sapphire.m in Sources */,
 				B91A603A18A1F7DD00BDD6C3 /* Menu.m in Sources */,
