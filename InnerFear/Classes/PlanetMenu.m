@@ -42,22 +42,25 @@
     //NSLog(@"%f, %f", background.width, background.height);
     [self addChild:background];
     
-//    SPQuad* bgmask = [[SPQuad alloc] initWithWidth:background.width height:background.height color:0x000000];
-//    bgmask.alpha = 0.75;
-//    [self addChild:bgmask];
+    SPImage* orbitButton = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"menubutton"]];
+    orbitButton.x = Sparrow.stage.width / 2.0 - 60;
+    orbitButton.y = Sparrow.stage.height - 110;
+    orbitButton.scaleX = (100+20) / orbitButton.width ;
+    orbitButton.scaleY = 50 / orbitButton.height;
+    [self addChild:orbitButton];
     
-    SPTextField *textField = [SPTextField textFieldWithWidth:100 height:50
-                                                        text:@"Close" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
-    textField.x = 0;
-    textField.y = Sparrow.stage.height - 50;
-    textField.hAlign = SPHAlignCenter;  // horizontal alignment
-    textField.vAlign = SPVAlignCenter; // vertical alignment
+    SPTextField *orbitField = [SPTextField textFieldWithWidth:100 height:50
+                                                        text:@"Enter Orbit" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
+    orbitField.x = Sparrow.stage.width / 2.0 - 50;
+    orbitField.y = Sparrow.stage.height - 110;
+    orbitField.hAlign = SPHAlignCenter;  // horizontal alignment
+    orbitField.vAlign = SPVAlignCenter; // vertical alignment
     
-    [self addChild:textField];
+    [self addChild:orbitField];
     
     __block PlanetMenu* that = self;
-    __block SPTextField* closeField = textField;
-    [textField addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPTouchEvent* event) {
+    __block SPTextField* closeField = orbitField;
+    [orbitField addEventListenerForType:SP_EVENT_TYPE_TOUCH block:^(SPTouchEvent* event) {
         SPTouch *endTouch = [[event touchesWithTarget:closeField andPhase:SPTouchPhaseEnded] anyObject];
         
         if (endTouch) {
@@ -66,52 +69,91 @@
         }
     }];
     
-    double rightcolumnwidth = 150.0;
+    SPImage* sapphireButton = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"menubutton"]];
+    sapphireButton.x = Sparrow.stage.width - 200;
+    sapphireButton.y = 50;
+    sapphireButton.scaleX = (100+50) / sapphireButton.width ;
+    sapphireButton.scaleY = 50 / sapphireButton.height;
+    [self addChild:sapphireButton];
     
-    self.sapphireCount = [[SPTextField alloc] initWithWidth:rightcolumnwidth height:50 text:@"0: Sapphire" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
-    self.sapphireCount.x = Sparrow.stage.width - rightcolumnwidth;
+    self.sapphireCount = [[SPTextField alloc] initWithWidth:150 height:50 text:@"0: Sapphire" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
+    self.sapphireCount.x = Sparrow.stage.width - 200;
     self.sapphireCount.y = 50;
-    self.sapphireCount.hAlign = SPHAlignRight;  // horizontal alignment
+    self.sapphireCount.hAlign = SPHAlignCenter;  // horizontal alignment
     [self addChild:self.sapphireCount];
-        [self.sapphireCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.sapphireCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    self.babylonCount = [[SPTextField alloc] initWithWidth:rightcolumnwidth height:50 text:@"0: Babylon" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
-    self.babylonCount.x = Sparrow.stage.width - rightcolumnwidth;
-    self.babylonCount.y = 100;
-    self.babylonCount.hAlign = SPHAlignRight;  // horizontal alignment
+    SPImage* babylonButton = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"menubutton"]];
+    babylonButton.x = Sparrow.stage.width - 200;
+    babylonButton.y = 105;
+    babylonButton.scaleX = (100+50) / babylonButton.width ;
+    babylonButton.scaleY = 50 / babylonButton.height;
+    [self addChild:babylonButton];
+
+    
+    self.babylonCount = [[SPTextField alloc] initWithWidth:150 height:50 text:@"0: Babylon" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
+    self.babylonCount.x = Sparrow.stage.width - 200;
+    self.babylonCount.y = 105;
+    self.babylonCount.hAlign = SPHAlignCenter;  // horizontal alignment
     [self addChild:self.babylonCount];
-        [self.babylonCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.babylonCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    SPImage* makoButton = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"menubutton"]];
+    makoButton.x = Sparrow.stage.width - 200;
+    makoButton.y = 160;
+    makoButton.scaleX = (100+50) / makoButton.width ;
+    makoButton.scaleY = 50 / makoButton.height;
+    [self addChild:makoButton];
+
     
-    self.makoCount = [[SPTextField alloc] initWithWidth:rightcolumnwidth height:50 text:@"0: Mako" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
-    self.makoCount.x = Sparrow.stage.width - rightcolumnwidth;
-    self.makoCount.y = 150;
-    self.makoCount.hAlign = SPHAlignRight;  // horizontal alignment
+    self.makoCount = [[SPTextField alloc] initWithWidth:150 height:50 text:@"0: Mako" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
+    self.makoCount.x = Sparrow.stage.width - 200;
+    self.makoCount.y = 160;
+    self.makoCount.hAlign = SPHAlignCenter;  // horizontal alignment
     [self addChild:self.makoCount];
-            [self.makoCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.makoCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    self.fleetSapphireCount = [[SPTextField alloc] initWithWidth:rightcolumnwidth height:50 text:@"Sapphire: 0" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
-    self.fleetSapphireCount.x = 0;
+    SPImage* fleetSapphireButton = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"menubutton"]];
+    fleetSapphireButton.x = 50;
+    fleetSapphireButton.y = 50;
+    fleetSapphireButton.scaleX = (100+50) / fleetSapphireButton.width ;
+    fleetSapphireButton.scaleY = 50 / fleetSapphireButton.height;
+    [self addChild:fleetSapphireButton];
+    
+    self.fleetSapphireCount = [[SPTextField alloc] initWithWidth:150 height:50 text:@"Sapphire: 0" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
+    self.fleetSapphireCount.x = 50;
     self.fleetSapphireCount.y = 50;
-    self.fleetSapphireCount.hAlign = SPHAlignLeft;  // horizontal alignment
+    self.fleetSapphireCount.hAlign = SPHAlignCenter;  // horizontal alignment
     [self addChild:self.fleetSapphireCount];
-            [self.fleetSapphireCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.fleetSapphireCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    self.fleetBabylonCount = [[SPTextField alloc] initWithWidth:rightcolumnwidth height:50 text:@"Babylon: 0" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
-    self.fleetBabylonCount.x = 0;
-    self.fleetBabylonCount.y = 100;
-    self.fleetBabylonCount.hAlign = SPHAlignLeft;  // horizontal alignment
+    SPImage* fleetBabylonButton = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"menubutton"]];
+    fleetBabylonButton.x = 50;
+    fleetBabylonButton.y = 105;
+    fleetBabylonButton.scaleX = (100+50) / fleetBabylonButton.width ;
+    fleetBabylonButton.scaleY = 50 / fleetBabylonButton.height;
+    [self addChild:fleetBabylonButton];
+    
+    self.fleetBabylonCount = [[SPTextField alloc] initWithWidth:150 height:50 text:@"Babylon: 0" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
+    self.fleetBabylonCount.x = 50;
+    self.fleetBabylonCount.y = 105;
+    self.fleetBabylonCount.hAlign = SPHAlignCenter;  // horizontal alignment
     [self addChild:self.fleetBabylonCount];
-            [self.fleetBabylonCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.fleetBabylonCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    self.fleetMakoCount = [[SPTextField alloc] initWithWidth:rightcolumnwidth height:50 text:@"Mako: 0" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
-    self.fleetMakoCount.x = 0;
-    self.fleetMakoCount.y = 150;
-    self.fleetMakoCount.hAlign = SPHAlignLeft;  // horizontal alignment
+    SPImage* fleetMakoButton = [[SPImage alloc] initWithTexture:[Media atlasTexture:@"menubutton"]];
+    fleetMakoButton.x = 50;
+    fleetMakoButton.y = 160;
+    fleetMakoButton.scaleX = (100+50) / fleetMakoButton.width ;
+    fleetMakoButton.scaleY = 50 / fleetMakoButton.height;
+    [self addChild:fleetMakoButton];
+    
+    self.fleetMakoCount = [[SPTextField alloc] initWithWidth:150 height:50 text:@"Mako: 0" fontName:@"Helvetica Bold" fontSize:18.0f color:0xff0000];
+    self.fleetMakoCount.x = 50;
+    self.fleetMakoCount.y = 160;
+    self.fleetMakoCount.hAlign = SPHAlignCenter;  // horizontal alignment
     [self addChild:self.fleetMakoCount];
-            [self.fleetMakoCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-    
-    
+    [self.fleetMakoCount addEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     [self.planet addEventListener:@selector(planetUpdated:) atObject:self forType:EVENT_TYPE_PLANET_FACTORY_UPDATE];
 }

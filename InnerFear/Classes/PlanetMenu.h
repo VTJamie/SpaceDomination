@@ -20,7 +20,7 @@
 @property (nonatomic, retain) SPTextField* fleetSapphireCount;
 @property (nonatomic, retain) SPTextField* fleetBabylonCount;
 @property (nonatomic, retain) SPTextField* fleetMakoCount;
-
+@property (nonatomic, retain) NSMutableDictionary* buttonInstances;
 
 
 - (id)initWithPlanet: (Planet*) planet;

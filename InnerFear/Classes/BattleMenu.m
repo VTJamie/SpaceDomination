@@ -131,7 +131,7 @@
         BOOL attacked = [[self.planet.ships objectAtIndex:i] advanceFight:[[Game instance].player getShipWithShields] timepassed:timepassed];
         if (attacked)
         {
-            NSLog(@"PLANET SHIP ATTACKED!");
+         //   NSLog(@"PLANET SHIP ATTACKED!");
         }
     }
     
@@ -140,7 +140,7 @@
         BOOL attacked = [[[Game instance].player.ships objectAtIndex:i] advanceFight:[self.planet getShipWithShields] timepassed:timepassed];
         if (attacked)
         {
-            NSLog(@"PLAYER SHIP ATTACKED!");
+            //NSLog(@"PLAYER SHIP ATTACKED!");
         }
     }
     
@@ -148,7 +148,7 @@
     {
         if ([[self.planet.ships objectAtIndex:i] currentShields] <= 0)
         {
-            NSLog(@"PLANET SHIP DESTROYED");
+        //    NSLog(@"PLANET SHIP DESTROYED");
             [self.planet.ships removeObjectAtIndex:i];
             i--;
         }
@@ -158,7 +158,7 @@
     {
         if ([[[Game instance].player.ships objectAtIndex:i] currentShields] <= 0)
         {
-            NSLog(@"PLAYER SHIP DESTROYED");
+         //   NSLog(@"PLAYER SHIP DESTROYED");
             [[Game instance].player.ships removeObjectAtIndex:i];
             i--;
         }
