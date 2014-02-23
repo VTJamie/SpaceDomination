@@ -15,10 +15,14 @@
     self = [super init];
     if (self)
     {
-        self.cost = 2.0;
-        self.attackSpeed = 1.5;
+        self.cost = 4.0;
+        self.attackSpeed = 2.0;
         self.attackPower = 0.5;
-        self.maxShields = 1.0;
+        self.maxShields = 2.0;
+        self.accuracy = 1.0;
+        
+        self.shieldRegenerateBoost = 0.01;
+        self.accuracyBoost = 0.01;
     }
     return self;
 }

@@ -19,12 +19,20 @@
 
 @property (nonatomic, assign) double attackPowerEnhancement;
 @property (nonatomic, assign) double attackSpeedEnhancement;
-@property (nonatomic, assign) double maxShieldsEnhancement;
+@property (nonatomic, assign) double shieldRegenerateEnhancement;
 @property (nonatomic, assign) double accuracyEnhancement;
 
+@property (nonatomic, assign) double attackPowerBoost;
+@property (nonatomic, assign) double attackSpeedBoost;
+@property (nonatomic, assign) double shieldRegenerateBoost;
+@property (nonatomic, assign) double accuracyBoost;
 
-@property (nonatomic, assign) double timeelapsed;
 
+
+@property (nonatomic, assign) double attackTimeTracker;
+@property (nonatomic, assign) double shieldRegenerateTracker;
+
+- (void) advanceShieldRegeneration: (double) timepassed;
 - (BOOL) advanceFight: (Ship*) target timepassed: (double) timepassed;
 
 @end

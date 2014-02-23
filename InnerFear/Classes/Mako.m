@@ -19,6 +19,8 @@
         self.attackSpeed = 0.5;
         self.attackPower = 0.5;
         self.maxShields = 0.5;
+             
+        self.accuracy = 1.0;
     }
     return self;
 }

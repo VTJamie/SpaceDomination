@@ -126,9 +126,14 @@
 
 - (void) handleAttacks: (double) timepassed
 {
+    
+    [self adjustShipEnhancements:self.planet.ships timepassed:timepassed];
+    [self adjustShipEnhancements:[Game instance].player.ships timepassed:timepassed];
+    
     for (int i = 0; i < self.planet.ships.count; i++)
     {
-        BOOL attacked = [[self.planet.ships objectAtIndex:i] advanceFight:[[Game instance].player getShipWithShields] timepassed:timepassed];
+        Ship* target = [[Game instance].player getShipWithShields];
+        BOOL attacked = [[self.planet.ships objectAtIndex:i] advanceFight: target timepassed:timepassed];
         if (attacked)
         {
          //   NSLog(@"PLANET SHIP ATTACKED!");
@@ -137,10 +142,11 @@
     
     for (int i = 0; i < [Game instance].player.ships.count; i++)
     {
-        BOOL attacked = [[[Game instance].player.ships objectAtIndex:i] advanceFight:[self.planet getShipWithShields] timepassed:timepassed];
+        Ship* target =[self.planet getShipWithShields];
+        BOOL attacked = [[[Game instance].player.ships objectAtIndex:i] advanceFight:target timepassed:timepassed];
         if (attacked)
         {
-            //NSLog(@"PLAYER SHIP ATTACKED!");
+//            NSLog(@"PLAYER SHIP ATTACKED!");
         }
     }
     
@@ -184,6 +190,33 @@
     self.fleetSapphireCount.text = [NSString stringWithFormat:@"Sapphire: %d", fleetSapphireships.count];
     self.fleetMakoCount.text = [NSString stringWithFormat:@"Mako: %d", fleetMakoships.count];
     self.fleetBabylonCount.text = [NSString stringWithFormat:@"Babylon: %d", fleetBabylonships.count];
+}
+
+- (void) adjustShipEnhancements: (NSArray*) shiparray timepassed: (double) timepassed
+{
+    double accuracyBoost = 1.0;
+    double attackPowerBoost = 1.0;
+    double attackSpeedBoost = 1.0;
+    double maxShieldsBoost = 0.0;
+    
+   
+    for (Ship* ship in shiparray)
+    {
+        accuracyBoost += ship.accuracyBoost;
+        attackPowerBoost += ship.attackPowerBoost;
+        attackSpeedBoost += ship.attackSpeedBoost;
+        maxShieldsBoost += ship.shieldRegenerateBoost;
+    }
+    
+    for (Ship* ship in shiparray)
+    {
+        ship.accuracyEnhancement = accuracyBoost;
+        ship.attackPowerEnhancement = attackPowerBoost;
+        ship.attackSpeedEnhancement = attackSpeedBoost;
+        ship.shieldRegenerateEnhancement = maxShieldsBoost;
+        
+        [ship advanceShieldRegeneration: timepassed];
+    }
 }
 
 @end

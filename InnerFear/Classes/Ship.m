@@ -20,19 +20,39 @@
         self.maxShields = 1.0;
         self.accuracy = 1.0;
         self.cost = 1.0;
-        self.timeelapsed = 0.0;
+        self.attackTimeTracker = 0.0;
+        self.shieldRegenerateTracker = 0.0;
+        
+        self.attackPowerBoost = 0.0;
+        self.attackSpeedBoost = 0.0;
+        self.shieldRegenerateBoost = 0.0;
+        self.accuracyBoost = 0.0;
     }
     return self;
 }
 
+- (void) advanceShieldRegeneration: (double) timepassed
+{
+    self.shieldRegenerateTracker += timepassed;
+    if (self.shieldRegenerateTracker >= 1.0)
+    {
+        self.currentShields += self.shieldRegenerateEnhancement;
+        self.shieldRegenerateTracker -= 1.0;
+    }
+}
+
 - (BOOL) advanceFight: (Ship*) target timepassed: (double) timepassed
 {
-    self.timeelapsed += timepassed;
+    self.attackTimeTracker += timepassed;
     
-    if (self.timeelapsed >= self.attackSpeed - self.attackSpeedEnhancement) {
-        self.timeelapsed -= (self.attackSpeed - self.attackPowerEnhancement);
-        target.currentShields -= self.attackPower + self.attackPowerEnhancement;
-        return YES;
+    double accuracyRandom = (arc4random() % 100) / 100;
+    if (accuracyRandom <= self.accuracy * self.accuracyEnhancement)
+    {
+        if (self.attackTimeTracker >= self.attackSpeed / self.attackSpeedEnhancement) {
+            self.attackTimeTracker -= (self.attackSpeed / self.attackSpeedEnhancement);
+            target.currentShields -= self.attackPower * self.attackPowerEnhancement;
+            return YES;
+        }
     }
     return NO;
 }
