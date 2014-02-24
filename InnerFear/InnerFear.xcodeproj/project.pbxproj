@@ -17,6 +17,7 @@
 		B914981418B9C91D00E2CBB5 /* BattleEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B914981318B9C91D00E2CBB5 /* BattleEngine.m */; };
 		B914981B18BA82A800E2CBB5 /* Playable.m in Sources */ = {isa = PBXBuildFile; fileRef = B914981A18BA82A800E2CBB5 /* Playable.m */; };
 		B91A603A18A1F7DD00BDD6C3 /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B91A603918A1F7DD00BDD6C3 /* StartMenu.m */; };
+		B95AA98C18BABEA2008A8B3B /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = B95AA98B18BABEA2008A8B3B /* GameOver.m */; };
 		B99712FE18A0760E001E884A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99712FD18A0760E001E884A /* Images.xcassets */; };
 		B99817DE18A0727A003A5C33 /* libSparrow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B99817DB18A0726D003A5C33 /* libSparrow.a */; };
 		B9F4708418B031B80030FD2E /* ZoomChangedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F4708318B031B80030FD2E /* ZoomChangedEvent.m */; };
@@ -86,6 +87,8 @@
 		B914981A18BA82A800E2CBB5 /* Playable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playable.m; sourceTree = "<group>"; };
 		B91A603818A1F7DD00BDD6C3 /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenu.h; sourceTree = "<group>"; };
 		B91A603918A1F7DD00BDD6C3 /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenu.m; sourceTree = "<group>"; };
+		B95AA98A18BABEA2008A8B3B /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		B95AA98B18BABEA2008A8B3B /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		B99712FD18A0760E001E884A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = InnerFear/Images.xcassets; sourceTree = "<group>"; };
 		B99817D518A0726C003A5C33 /* Sparrow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparrow.xcodeproj; path = Sparrow/Sparrow.xcodeproj; sourceTree = "<group>"; };
 		B9F4708218B031B80030FD2E /* ZoomChangedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomChangedEvent.h; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 		B91A603718A1F77400BDD6C3 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				B95AA98A18BABEA2008A8B3B /* GameOver.h */,
+				B95AA98B18BABEA2008A8B3B /* GameOver.m */,
 				B91A603818A1F7DD00BDD6C3 /* StartMenu.h */,
 				B91A603918A1F7DD00BDD6C3 /* StartMenu.m */,
 			);
@@ -468,6 +473,7 @@
 				B9F4709018B142790030FD2E /* Ship.m in Sources */,
 				B900CF2818AC8DB8009396FA /* ShipFactory.m in Sources */,
 				B9FC696A18A86E8F00A60F4B /* GamePieceContainer.m in Sources */,
+				B95AA98C18BABEA2008A8B3B /* GameOver.m in Sources */,
 				B9F4709918B1AD700030FD2E /* BattleMenu.m in Sources */,
 				B9FC695418A73D8700A60F4B /* Background.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,

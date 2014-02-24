@@ -12,6 +12,7 @@
 #import "GamePieceContainer.h"
 #import "PlanetTouchEvent.h"
 #import "ZoomChangedEvent.h"
+#import "GameOver.h"
 
 // --- private interface ---------------------------------------------------------------------------
 
@@ -73,6 +74,16 @@
     self.startmenu = [[StartMenu alloc] init];
     [self addChild:self.startmenu];
     [self.startmenu setup];
+}
+
+- (void) showGameOver: (BOOL) win
+{
+    [self removeAllChildren];
+    self.playarea = nil;
+        self.startmenu = nil;
+    self.gameover = [[GameOver alloc] initWithStatus: win];
+    [self addChild:self.gameover];
+    [self.gameover setup];
 }
 
 +(Game*) instance

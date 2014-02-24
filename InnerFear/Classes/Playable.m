@@ -16,7 +16,7 @@
 {
     if ((self = [super init]))
     {
-        self.numberofplanets = 2;
+        self.numberofplanets = 4;
         double gamesize = (self.numberofplanets/2 * 60);
         self.minX = -gamesize;
         self.maxX = gamesize;
@@ -44,12 +44,17 @@
     self.computer = [[Fleet alloc] initWithSide:2];
     self.player = [[Fleet alloc] initWithSide:1];
     
-    Planet* playerplanet = [[Planet alloc] initWithTeam:1 X: 0 Y: 0 size: 1.5];
+    double startx = Sparrow.stage.width/2.0 - self.maxX / 2.0;
+    double starty = Sparrow.stage.height/2.0 - self.maxY / 2.0;
+    
+    NSLog(@"%f, %f", Sparrow.stage.width/2.0, Sparrow.stage.height/2.0);
+    
+    Planet* playerplanet = [[Planet alloc] initWithTeam:1 X: startx Y: starty size: 1.5];
     [playerplanet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
     [self.planets addObject:playerplanet];
     [self.gamepieceSprite addChild:playerplanet];
     
-    Planet* computerplanet = [[Planet alloc] initWithTeam:2 X: self.maxX + 60 Y: self.maxY + 60 size: 1.5];
+    Planet* computerplanet = [[Planet alloc] initWithTeam:2 X: startx + self.maxX + 60 Y: starty + self.maxY + 60 size: 1.5];
     [computerplanet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
     [self.planets addObject:computerplanet];
     [self.gamepieceSprite addChild:computerplanet];
@@ -64,7 +69,7 @@
     {
         for (int j = 1; j <= self.numberofplanets/2; j++)
         {
-            Planet* planet = [[Planet alloc] initWithTeam:0 X: i*60 Y: j*60 size: 1.0];
+            Planet* planet = [[Planet alloc] initWithTeam:0 X: startx + i*60 Y: starty + j*60 size: 1.0];
             [planet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
             [self.planets addObject:planet];
             [self.gamepieceSprite addChild:planet];
@@ -116,7 +121,7 @@
         [self.computer advanceTime:event.passedTime];
     }
     else {
-        [[Game instance] showStartMenu];
+        [[Game instance] showGameOver: !foundenemy];
     }
 }
 
