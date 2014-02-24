@@ -121,9 +121,9 @@
     
     for (Ship* ship in shiparray)
     {
-        accuracyBoost += ship.accuracyBoost;
-        attackPowerBoost += ship.attackPowerBoost;
-        attackSpeedBoost += ship.attackSpeedBoost;
+        accuracyBoost *= ship.accuracyBoost + 1.0;
+        attackPowerBoost *= ship.attackPowerBoost + 1.0;
+        attackSpeedBoost *= ship.attackSpeedBoost + 1.0;
         maxShieldsBoost += ship.shieldRegenerateBoost;
     }
     

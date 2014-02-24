@@ -24,6 +24,10 @@
         self.unitSize = unitSize;
         self.shiporder = [[NSMutableArray alloc] init];
         [self.shiporder addObject:[Mako class]];
+        [self.shiporder addObject:[Mako class]];
+        [self.shiporder addObject:[Mako class]];
+        [self.shiporder addObject:[Mako class]];
+        [self.shiporder addObject:[Mako class]];
         [self.shiporder addObject:[Sapphire class]];
         [self.shiporder addObject:[Babylon class]];
         
