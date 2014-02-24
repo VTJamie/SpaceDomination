@@ -25,7 +25,20 @@
 - (void)dealloc
 {
     // release any resources here
+        NSLog(@"%@", @"Dealloc");
     
+    [self.fleetMakoCount removeEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    [self.planet removeEventListener:@selector(planetUpdated:) atObject:self forType:EVENT_TYPE_PLANET_FACTORY_UPDATE];
+    
+    [self removeEventListener:@selector(onEnterFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
+     [self.sapphireCount removeEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.babylonCount removeEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.makoCount removeEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    [self.fleetSapphireCount removeEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.fleetMakoCount removeEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self.fleetBabylonCount removeEventListener:@selector(shipTouch:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 
 - (void)setup

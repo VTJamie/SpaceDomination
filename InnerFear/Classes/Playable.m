@@ -16,8 +16,8 @@
 {
     if ((self = [super init]))
     {
-        self.numberofplanets = 4;
-        double gamesize = (self.numberofplanets/2 * 60);
+        self.numberofplanets = 5;
+        double gamesize = (self.numberofplanets * 60);
         self.minX = -gamesize;
         self.maxX = gamesize;
         self.minY = -gamesize;
@@ -33,6 +33,7 @@
 
 - (void)dealloc
 {
+    NSLog(@"%@", @"Dealloc");
 }
 
 - (void)start
@@ -65,9 +66,9 @@
     self.computer.x = computerplanet.x;
     self.computer.y = computerplanet.y;
     
-    for (int i = 1; i <= self.numberofplanets/2; i++)
+    for (int i = 1; i <= self.numberofplanets; i++)
     {
-        for (int j = 1; j <= self.numberofplanets/2; j++)
+        for (int j = 1; j <= self.numberofplanets; j++)
         {
             Planet* planet = [[Planet alloc] initWithTeam:0 X: startx + i*60 Y: starty + j*60 size: 1.0];
             [planet addEventListener:@selector(planetTouch:) atObject:self forType:EVENT_TYPE_PLANET_TOUCH];
